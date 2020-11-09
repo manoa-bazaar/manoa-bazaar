@@ -11,6 +11,12 @@ import { Stuffs } from '../../api/stuff/Stuff';
 const formSchema = new SimpleSchema({
   name: String,
   quantity: Number,
+  price: Number,
+  category: {
+    type: String,
+    allowedValues: ['Textbooks', 'Kitchenware', 'Bedroom Items', 'School Supplies', 'Other Items'],
+    defaultValue: 'textbook',
+  },
   condition: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
@@ -26,9 +32,9 @@ class AddStuff extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, quantity, condition, description } = data;
+    const { name, quantity, price, category, condition, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, quantity, condition, description, owner },
+    Stuffs.collection.insert({ name, quantity, category, condition, price, description, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -49,7 +55,8 @@ class AddStuff extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <NumField name='quantity' decimal={false}/>
+                <SelectField name='category' />
+                <NumField name='quantity' decimal={false}/> <NumField name='price' decimal={true} />
                 <SelectField name='condition'/>
                 <LongTextField name='description'/>
                 <Button content="Upload Image" labelPosition="left" icon="camera" onClick={() => this.fileInputRef.current.click()} />
