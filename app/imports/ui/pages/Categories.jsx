@@ -13,7 +13,7 @@ class Categories extends React.Component {
             <Grid.Row>
               <Grid.Column>
                 <Card as={NavLink} exact to="/textbooks" key="/textbooks">
-                  <Image src='https://icon-library.com/images/book-stack-icon/book-stack-icon-10.jpg' wrapped
+                  <Image src='https://d.newsweek.com/en/full/59117/kap2611-technology-textbooks.jpg?w=1600&h=1600&q=88&f=ff093339934fb2d9734f9cea52d446ac' wrapped
                          ui={false}/>
                   <Card.Content>
                     <Card.Header>Textbooks</Card.Header>
@@ -27,7 +27,7 @@ class Categories extends React.Component {
               <Grid.Column>
                 <Card>
                   <Image
-                      src='https://cdn0.iconfinder.com/data/icons/sugar/64/174_bakery-kitchen-baking-cooking-512.png'
+                      src='https://pyxis.nymag.com/v1/imgs/29c/91b/fef7ee5dd274755481e580ee0933f6db19-Home-Hero-Kitchen-Utensil-Set-lede.rsquare.w700.jpg'
                       wrapped ui={false}/>
                   <Card.Content>
                     <Card.Header>Kitchenware</Card.Header>
@@ -41,7 +41,7 @@ class Categories extends React.Component {
               <Grid.Column>
                 <Card>
                   <Image
-                      src='https://img.pngio.com/bedroom-furniture-interior-icon-with-png-and-vector-format-for-black-and-white-png-bed-512_512.png'
+                      src='https://www.alisondeyette.com/wp-content/uploads/dorm-room-design-ideas.jpg'
                       wrapped ui={false}/>
                   <Card.Content>
                     <Card.Header>Bedroom items</Card.Header>
@@ -55,7 +55,7 @@ class Categories extends React.Component {
               <Grid.Column>
                 <Card>
                   <Image
-                      src='https://image.flaticon.com/icons/png/512/120/120128.png'
+                      src='https://sep.yimg.com/ay/vickerey/clairefontaine-basics-large-spiral-bound-notebook-with-pockets-6-x-8-25-9.jpg'
                       wrapped ui={false}/>
                   <Card.Content>
                     <Card.Header>School supplies</Card.Header>
@@ -69,7 +69,7 @@ class Categories extends React.Component {
               <Grid.Column>
                 <Card>
                   <Image
-                      src='https://cdn1.iconfinder.com/data/icons/smoothline-action/30/action_028-detail-more-info-others-512.png'
+                      src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png'
                       wrapped ui={false}/>
                   <Card.Content>
                     <Card.Header>Other items</Card.Header>
