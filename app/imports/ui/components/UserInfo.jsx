@@ -10,7 +10,7 @@ class UserInfo extends React.Component {
             <Grid.Column floated='left'>
               <Image id="icon-space" size='small' circular src='images/cat-icon.jpg'/>
             </Grid.Column>
-            <Grid.Column floated='right'>
+            <Grid.Column>
               <h2>kittyjewel7981</h2>
               <Rating icon='star' defaultRating={4} maxRating={5} />
               <h4>80 items listed | 78 sales</h4>
