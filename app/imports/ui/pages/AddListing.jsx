@@ -4,28 +4,9 @@ import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField, L
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Listings } from '../../api/listing/Listing';
 
-/** Create a schema to specify the structure of the data to appear in the form. */
-const formSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  price: Number,
-  category: {
-    type: String,
-    allowedValues: ['Textbooks', 'Kitchenware', 'Bedroom Items', 'School Supplies', 'Other Items'],
-    defaultValue: 'textbook',
-  },
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
-  description: String,
-});
-
-const bridge = new SimpleSchema2Bridge(formSchema);
+const bridge = new SimpleSchema2Bridge(Listings.schema);
 
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
@@ -34,7 +15,7 @@ class AddStuff extends React.Component {
   submit(data, formRef) {
     const { name, quantity, price, category, condition, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, quantity, category, condition, price, description, owner },
+    Listings.collection.insert({ name, quantity, category, condition, price, description, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
