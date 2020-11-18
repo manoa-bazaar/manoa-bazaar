@@ -21,9 +21,10 @@ class ListingsCollection {
       },
       condition: {
         type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
+        allowedValues: ['brand new', 'like new', 'lightly used', 'heavily used'],
+        defaultValue: 'brand new',
       },
+      brand: String,
       description: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

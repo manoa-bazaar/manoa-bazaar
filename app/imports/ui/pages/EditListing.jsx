@@ -15,8 +15,8 @@ class EditListing extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { name, quantity, category, condition, price, description, owner, _id } = data;
-    Listings.collection.update(_id, { $set: { name, quantity, category, condition, price, description, owner } }, (error) => (error ?
+    const { name, quantity, category, condition, price, brand, description, owner, _id } = data;
+    Listings.collection.update(_id, { $set: { name, quantity, category, condition, price, brand, description, owner } }, (error) => (error ?
         swal('Error', error.message, 'error') :
         swal('Success', 'Item updated successfully', 'success')));
   }
@@ -38,6 +38,7 @@ class EditListing extends React.Component {
                 <SelectField name='category' />
                 <NumField name='quantity' decimal={false}/> <NumField name='price' decimal={true} />
                 <SelectField name='condition'/>
+                <TextField name='brand'/>
                 <LongTextField name='description'/>
                 <Button content="Upload Image" labelPosition="left" icon="camera" onClick={() => this.fileInputRef.current.click()} />
                 <input ref={this.fileInputRef} type="file" hidden onChange={this.fileChange} />

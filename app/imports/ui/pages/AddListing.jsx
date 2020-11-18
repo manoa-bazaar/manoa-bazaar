@@ -13,9 +13,9 @@ class AddStuff extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, quantity, price, category, condition, description } = data;
+    const { name, quantity, price, category, condition, brand, description, image } = data;
     const owner = Meteor.user().username;
-    Listings.collection.insert({ name, quantity, category, condition, price, description, owner },
+    Listings.collection.insert({ name, quantity, category, condition, price, brand, description, image, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -39,6 +39,7 @@ class AddStuff extends React.Component {
                 <SelectField name='category' />
                 <NumField name='quantity' decimal={false}/> <NumField name='price' decimal={true} />
                 <SelectField name='condition'/>
+                <TextField name='brand'/>
                 <LongTextField name='description'/>
                 <Button content="Upload Image" labelPosition="left" icon="camera" onClick={() => this.fileInputRef.current.click()} />
                 <input ref={this.fileInputRef} type="file" hidden onChange={this.fileChange} />
