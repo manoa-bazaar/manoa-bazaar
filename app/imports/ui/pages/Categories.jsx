@@ -39,7 +39,7 @@ class Categories extends React.Component {
                 </Card>
               </Grid.Column>
               <Grid.Column>
-                <Card as={NavLink} exact to="/bedroomitems" key="/bedroomitems">
+                <Card as={NavLink} exact to="/bedroom" key="/bedroom">
                   <Image
                       src='https://www.alisondeyette.com/wp-content/uploads/dorm-room-design-ideas.jpg'
                       wrapped ui={false}/>
@@ -53,7 +53,7 @@ class Categories extends React.Component {
                 </Card>
               </Grid.Column>
               <Grid.Column>
-                <Card as={NavLink} exact to="/schoolsupplies" key="/schoolsupplies">
+                <Card as={NavLink} exact to="/school" key="/school">
                   <Image
                       src='https://sep.yimg.com/ay/vickerey/clairefontaine-basics-large-spiral-bound-notebook-with-pockets-6-x-8-25-9.jpg'
                       wrapped ui={false}/>
@@ -67,7 +67,7 @@ class Categories extends React.Component {
                 </Card>
               </Grid.Column>
               <Grid.Column>
-                <Card as={NavLink} exact to="/others" key="/others">
+                <Card as={NavLink} exact to="/other" key="/other">
                   <Image
                       src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png'
                       wrapped ui={false}/>
