@@ -14,6 +14,7 @@ class ListingsCollection {
       name: String,
       quantity: Number,
       price: Number,
+      image: String,
       category: {
         type: String,
         allowedValues: ['Textbooks', 'Kitchenware', 'Bedroom Items', 'School Supplies', 'Other Items'],

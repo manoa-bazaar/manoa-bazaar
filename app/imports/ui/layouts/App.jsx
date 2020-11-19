@@ -9,12 +9,17 @@ import Landing from '../pages/Landing';
 import Categories from '../pages/Categories';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
+import Textbooks from '../pages/Textbooks';
 import AddListing from '../pages/AddListing';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import KitchenItems from '../pages/KitchenItems';
+import BedroomItems from '../pages/BedroomItems';
+import SchoolItems from '../pages/SchoolItems';
+import Others from '../pages/Others';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -28,6 +33,11 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/categories" component={Categories}/>
+              <ProtectedRoute path="/textbooks" component={Textbooks}/>
+              <ProtectedRoute path="/kitchenware" component={KitchenItems}/>
+              <ProtectedRoute path="/bedroom" component={BedroomItems}/>
+              <ProtectedRoute path="/school" component={SchoolItems}/>
+              <ProtectedRoute path="/other" component={Others}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddListing}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
