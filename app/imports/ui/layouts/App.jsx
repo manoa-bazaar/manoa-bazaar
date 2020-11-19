@@ -19,6 +19,7 @@ import Signout from '../pages/Signout';
 import KitchenItems from '../pages/KitchenItems';
 import BedroomItems from '../pages/BedroomItems';
 import SchoolItems from '../pages/SchoolItems';
+import UserProfile from '../pages/UserProfile';
 import Others from '../pages/Others';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -38,7 +39,7 @@ class App extends React.Component {
               <ProtectedRoute path="/bedroom" component={BedroomItems}/>
               <ProtectedRoute path="/school" component={SchoolItems}/>
               <ProtectedRoute path="/other" component={Others}/>
-              <ProtectedRoute path="/userinfo" component={UserInfo}/>
+              <ProtectedRoute path="/userprofile" component={UserProfile}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddListing}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
