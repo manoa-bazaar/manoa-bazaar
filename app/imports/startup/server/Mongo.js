@@ -31,3 +31,10 @@ if (Listings.collection.find().count() === 0) {
     Meteor.settings.defaultListing.map(data => addListing(data));
   }
 }
+
+if ((Meteor.settings.loadAssetsFile) && (Listings.collection.find().count() === 0)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.collection.map(item => addListing(item));
+}
