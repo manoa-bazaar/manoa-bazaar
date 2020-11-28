@@ -16,6 +16,7 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import ViewItem from '../pages/ViewItem';
 import KitchenItems from '../pages/KitchenItems';
 import BedroomItems from '../pages/BedroomItems';
 import SchoolItems from '../pages/SchoolItems';
@@ -43,6 +44,7 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddListing}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/viewitem/:_id" component={ViewItem}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

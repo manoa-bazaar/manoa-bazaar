@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Textbook extends React.Component {
@@ -14,14 +14,17 @@ class Textbook extends React.Component {
                 // size='huge'
                 width='300px'
                 height='300px'
-                src={this.props.textBook.image}
+                src={this.props.books.image}
             />
-            <Card.Header>{this.props.textBook.name}</Card.Header>
-            <Card.Meta>Price: {this.props.textBook.price}</Card.Meta>
-            <Card.Meta>Condition: {this.props.textBook.condition}</Card.Meta>
-            <Card.Meta>Quantity: {this.props.textBook.quantity}</Card.Meta>
+            <Card.Header>{this.props.books.name}</Card.Header>
+            <Card.Meta>Price: {this.props.books.price}$</Card.Meta>
+            <Card.Meta>Condition: {this.props.books.condition}</Card.Meta>
+            <Card.Meta>Quantity: {this.props.books.quantity}</Card.Meta>
             <Card.Description>
-              {this.props.textBook.description}
+              {this.props.books.description}
+            </Card.Description>
+            <Card.Description>
+              <Link to={`/viewitem/${this.props.books._id}`}>View Item</Link>
             </Card.Description>
           </Card.Content>
         </Card>
@@ -31,7 +34,7 @@ class Textbook extends React.Component {
 
 /** Require a document to be passed to this component. */
 Textbook.propTypes = {
-  textBook: PropTypes.object.isRequired,
+  books: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
