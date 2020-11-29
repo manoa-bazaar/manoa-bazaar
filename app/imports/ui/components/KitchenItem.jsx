@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Button, Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -17,16 +17,12 @@ class KitchenItem extends React.Component {
                 src={this.props.kitchenitems.image}
             />
             <Card.Header>{this.props.kitchenitems.name}</Card.Header>
-            <Card.Meta>Price: {this.props.kitchenitems.price}$</Card.Meta>
-            <Card.Meta>Condition: {this.props.kitchenitems.condition}</Card.Meta>
-            <Card.Meta>Quantity: {this.props.kitchenitems.quantity}</Card.Meta>
+            <Card.Meta>Price: ${this.props.kitchenitems.price}</Card.Meta>
             <Card.Description>
               {this.props.kitchenitems.description}
             </Card.Description>
-            <Card.Description>
-              <Link to={`/viewitem/${this.props.kitchenitems._id}`}>View Item</Link>
-            </Card.Description>
           </Card.Content>
+          <Link to={`/viewitem/${this.props.kitchenitems._id}`}><Button size='small' attached='bottom'>View item</Button></Link>
         </Card>
     );
   }

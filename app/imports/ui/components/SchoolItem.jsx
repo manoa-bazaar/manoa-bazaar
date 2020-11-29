@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Button, Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -17,16 +17,12 @@ class SchoolItem extends React.Component {
                 src={this.props.items.image}
             />
             <Card.Header>{this.props.items.name}</Card.Header>
-            <Card.Meta>Price: {this.props.items.price}$</Card.Meta>
-            <Card.Meta>Condition: {this.props.items.condition}</Card.Meta>
-            <Card.Meta>Quantity: {this.props.items.quantity}</Card.Meta>
+            <Card.Meta>Price: ${this.props.items.price}</Card.Meta>
             <Card.Description>
               {this.props.items.description}
             </Card.Description>
-            <Card.Description>
-              <Link to={`/viewitem/${this.props.items._id}`}>View Item</Link>
-            </Card.Description>
           </Card.Content>
+          <Link to={`/viewitem/${this.props.items._id}`}><Button size='small' attached='bottom'>View item</Button></Link>
         </Card>
     );
   }

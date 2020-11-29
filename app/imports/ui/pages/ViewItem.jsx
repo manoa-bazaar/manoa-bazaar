@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, Image, Loader } from 'semantic-ui-react';
+import { Loader, Image, Header, Container, Button } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Listings } from '../../api/listing/Listing';
+import { Link } from 'react-router-dom';
 
 /** Renders the Page for editing a single document. */
 class ViewItem extends React.Component {
@@ -15,24 +16,29 @@ class ViewItem extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-          <Card centered>
-            <Card.Content>
-              <Image
-                  // floated='right'
-                  // size='huge'
-                  width='300px'
-                  height='300px'
-                  src={this.props.doc.image}
-              />
-              <Card.Header>{this.props.doc.name}</Card.Header>
-              <Card.Meta>Price: {this.props.doc.price}$</Card.Meta>
-              <Card.Meta>Condition: {this.props.doc.condition}</Card.Meta>
-              <Card.Meta>Quantity: {this.props.doc.quantity}</Card.Meta>
-              <Card.Description>
-                {this.props.doc.description}
-              </Card.Description>
-            </Card.Content>
-          </Card>
+        <div>
+          <Container textAlign='center'><Header as='h2'>{this.props.doc.name}</Header>
+            <Image src={this.props.doc.image} size='medium' centered></Image></Container>
+          <Container textAlign='justified'>
+            <b>Price:</b>
+            <p>
+              ${this.props.doc.price}
+            </p>
+            <b>Items available:</b>
+            <p>
+              {this.props.doc.quantity}
+            </p>
+            <b>Condition of this item:</b>
+            <p>
+              {this.props.doc.condition}
+            </p>
+            <b>Description:</b>
+            <p>
+              {this.props.doc.description}
+            </p>
+            <Link to={`/makeoffer/${this.props.doc._id}`}><Button size='big' content='Make an offer' /></Link>
+          </Container>
+        </div>
     );
   }
 }
