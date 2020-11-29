@@ -14,5 +14,7 @@
   "monti": {
     "appId": "34gdQaE89pJ926u6r",
     "appSecret": "8ec1d63c-4362-4ffc-8dfd-9140f0a8a588"
-  }
+  },
+
+  "loadAssetsFile": true
 }
