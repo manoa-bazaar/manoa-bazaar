@@ -3,8 +3,8 @@ import { Loader, Image, Header, Container, Button } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Listings } from '../../api/listing/Listing';
 import { Link } from 'react-router-dom';
+import { Listings } from '../../api/listing/Listing';
 
 /** Renders the Page for editing a single document. */
 class ViewItem extends React.Component {
