@@ -18,7 +18,7 @@ class ListingsCollection {
       category: {
         type: String,
         allowedValues: ['Textbooks', 'Kitchenware', 'Bedroom Items', 'School Supplies', 'Other Items'],
-        defaultValue: 'Textbook',
+        defaultValue: 'Textbooks',
       },
       condition: {
         type: String,
@@ -27,6 +27,7 @@ class ListingsCollection {
       },
       brand: String,
       description: String,
+      owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

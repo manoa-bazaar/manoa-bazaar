@@ -58,6 +58,91 @@
     { "name": "Building Blocks", "quantity": "1", "category": "Other Items", "condition":  "lightly used", "price": "70", "brand": "DNA",
       "description":  "Building Block set", "image": "https://cdn4.iconfinder.com/data/icons/gambling-7/54/cube-rubix-rubik-puzzle-256.png", "owner": "john@foo.com" },
     { "name": "Brick", "quantity": "1", "category": "Other Items", "condition":  "lightly used", "price": "500", "brand": "Supreme",
-      "description":  "Supreme Brick", "image": "https://cdn3.iconfinder.com/data/icons/construction-1-outline/60/Construction_-_Outline_-_032_-_Brick-256.png", "owner": "john@foo.com" }
+      "description":  "Supreme Brick", "image": "https://cdn3.iconfinder.com/data/icons/construction-1-outline/60/Construction_-_Outline_-_032_-_Brick-256.png", "owner": "john@foo.com" },
+    { "name": "Neurobiology textbook", "quantity": "2", "price": "75", "category": "Textbooks", "condition": "lightly used",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/41zvoQos4yL._SX348_BO1,204,203,200_.jpg",
+       "owner": "john@foo.com", "brand": "UHM", "description": "This is the CLRS textbook that is used in ICS 311. It is in used, but a fair condition." },
+    { "name": "Physics textbook", "quantity": "1", "price": "125", "image": "https://cuhsphysics.weebly.com/uploads/3/8/9/5/38955313/1484413_orig.png", "category": "Textbooks", "condition": "like new", "description": "Physics textbook that I have used for 2 semesters, but it is in good condition.", "brand": "UHM", "owner": "john@foo.com" },
+    { "name": "Notebooks", "quantity": "3", "price": "10", "image": "https://m.media-amazon.com/images/I/61cBJHmE70L._AC_SS350_.jpg",
+      "category": "School Supplies", "condition": "brand new", "brand": "Walmart", "description": "Unused notebooks. I bought too many and do not need these.", "owner": "john@foo.com" },
+    { "name": "iClicker 2", "quantity": "1", "price": "35", "category": "School Supplies", "condition": "like new",
+      "image": "https://i.pinimg.com/originals/74/53/b9/7453b93004e37a5c666910a440f129ca.jpg", "brand": "UHM", "description": "iClicker 2 that I only used for 1 semester.", "owner": "john@foo.com" },
+    {
+      "name": "Couch",
+      "quantity": "1",
+      "price": "60",
+      "image": "https://1q53492h6qsl1p6jty407gjh-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/used-furniture-reclining-sofa.jpg",
+      "category": "Other Items",
+      "condition": "lightly used",
+      "brand": "Ikea",
+      "description": "Used couch. Has usage marks, but still works great.",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Table",
+      "quantity": "1",
+      "price": "50",
+      "image": "https://www.welterstorage.com/wp-content/uploads/2018/05/IMG_1921.jpg",
+      "category": "Other Items",
+      "condition": "like new",
+      "brand": "Ikea",
+      "description": "Multi-use table. 40x40 inches.",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Microwave",
+      "quantity": "1",
+      "price": "35",
+      "image": "https://www.squaredealonline.co.uk/wp-content/uploads/2019/05/Bosch_HMT75M451B-900x900.jpg",
+      "category": "Kitchenware",
+      "condition": "lightly used",
+      "brand": "LG",
+      "description": "Mircowave perfect for in the dorms on campus! Used it for 2 years.",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Mini fridge",
+      "quantity": "1",
+      "price": "80",
+      "image": "https://images.homedepot-static.com/productImages/7ccf5eb9-f68e-4b95-bb59-07b0649bffbf/svn/gray-costway-mini-fridges-ep22672gr-64_1000.jpg",
+      "category": "Kitchenware",
+      "condition": "like new",
+      "brand": "Samsung",
+      "description": "Mini fridge that is barely used. Works great!",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Full Size Mattress",
+      "quantity": "1",
+      "price": "70",
+      "image": "https://static.rcwilley.com/products/111062993/Sunset-Ruby-Firm-Full-Size-Mattress-rcwilley-image1~800.jpg",
+      "category": "Bedroom Items",
+      "condition": "like new",
+      "brand": "Ikea",
+      "description": "Full size mattress that has been in storage for most of the time. I slept on it for about 4 weeks' +\n    ' and then I moved to a furnished bedroom, and did not need it anymore.",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Nightstand",
+      "quantity": "1",
+      "price": "300",
+      "image": "https://images.eq3.com/product-definitions/cjuu1i1z80dps0102x327b7eq/instance/cjv5mezg7060y01902bb3hzkb/THUMBNAIL/26a2c563-72f2-44f6-8da8-fda3b6361a1d.jpg",
+      "category": "Bedroom Items",
+      "condition": "lightly used",
+      "brand": "Ikea",
+      "description": "Very basic nightstand. Has some usage marks, but works fine.",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Standing fan",
+      "quantity": "1",
+      "price": "20",
+      "image": "https://secure.img1-fg.wfcdn.com/im/54764023/resize-h310-w310%5Ecompr-r85/9153/91537614/18-oscillating-pedestal-fan.jpg",
+      "category": "Bedroom Items",
+      "condition": "like new",
+      "brand": "Target",
+      "description": "Fan that gives you a much needed breeze on the hot nights!",
+      "owner": "john@foo.com"
+    }
   ]
 }

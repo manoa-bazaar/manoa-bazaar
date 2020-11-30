@@ -32,7 +32,7 @@ if (Listings.collection.find().count() === 0) {
   }
 }
 
-if ((Meteor.settings.loadAssetsFile) && (Listings.collection.find().count() < 12)) {
+if ((Meteor.settings.loadAssetsFile) && (Listings.collection.find().count() < 5)) {
   const assetsFileName = 'data.json';
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));

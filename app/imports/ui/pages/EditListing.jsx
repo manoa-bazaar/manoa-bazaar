@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment, Button } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, LongTextField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
@@ -31,17 +31,17 @@ class EditListing extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Stuff</Header>
+            <Header as="h2" textAlign="center">Edit Listing</Header>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='name'/>
                 <SelectField name='category' />
-                <NumField name='quantity' decimal={false}/> <NumField name='price' decimal={true} />
+                <NumField name='quantity' decimal={false} />
+                <NumField name='price' decimal={true} />
                 <SelectField name='condition'/>
                 <TextField name='brand'/>
                 <LongTextField name='description'/>
-                <Button content="Upload Image" labelPosition="left" icon="camera" onClick={() => this.fileInputRef.current.click()} />
-                <input ref={this.fileInputRef} type="file" hidden onChange={this.fileChange} />
+                <TextField name='image'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />

@@ -13,21 +13,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Listings.itemPublicationName, function () {
-  if (this.userId) {
-    return Listings.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Listings.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Listings.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
