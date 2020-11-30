@@ -24,15 +24,7 @@ function addListing(data) {
   Listings.collection.insert(data);
 }
 
-/** Initialize the Listings collection if empty. */
-if (Listings.collection.find().count() === 0) {
-  if (Meteor.settings.defaultItems) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultItems.map(data => addListing(data));
-  }
-}
-
-if ((Meteor.settings.loadAssetsFile) && (Listings.collection.find().count() < 12)) {
+if ((Meteor.settings.loadAssetsFile) && (Listings.collection.find().count() === 0)) {
   const assetsFileName = 'data.json';
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
