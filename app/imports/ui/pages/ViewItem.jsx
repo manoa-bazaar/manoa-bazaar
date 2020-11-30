@@ -32,6 +32,10 @@ class ViewItem extends React.Component {
             <p>
               {this.props.doc.condition}
             </p>
+            <b>Brand:</b>
+            <p>
+              {this.props.doc.brand}
+            </p>
             <b>Description:</b>
             <p>
               {this.props.doc.description}
