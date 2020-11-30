@@ -13,6 +13,13 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Listings.itemPublicationName, function () {
+  if (this.userId) {
+    return Listings.collection.find();
+  }
+  return this.ready();
+});
+
 Meteor.publish(Listings.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
