@@ -21,6 +21,7 @@ import BedroomItems from '../pages/BedroomItems';
 import SchoolItems from '../pages/SchoolItems';
 import UserProfile from '../pages/UserProfile';
 import Others from '../pages/Others';
+import MakeOffer from '../pages/MakeOffer';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -43,6 +44,7 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddListing}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/make-offer" component={MakeOffer}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
