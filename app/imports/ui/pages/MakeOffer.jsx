@@ -46,7 +46,7 @@ class MakeOffer extends React.Component {
                 <Container text><p>This is where the user description would go</p>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                 <p>Item Category > Item Subcategory</p>
-                <p>Listed 4 days in Kaneohe</p>
+                <p>Listed 4 days ago in Kaneohe</p>
                 <Image src='images/map-placeholder.png' size='medium' rounded/>
                 </Container>
                 <Container>
