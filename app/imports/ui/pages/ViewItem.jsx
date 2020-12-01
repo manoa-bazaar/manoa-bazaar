@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Divider, Button, Container, Header, Loader, Feed } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Container, Header, Loader, Card } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
@@ -54,17 +54,12 @@ class ViewItem extends React.Component {
                 <p>Listed 4 days ago in Kaneohe</p>
                 <Image src='images/map-placeholder.png' size='medium' rounded/>
               </Container>
-              <Feed>
-                <Feed.Event>
-                  <Image src='images/cat-icon.jpg' avatar/>
-                  <Feed.Content>
-                    <Feed.Date>3 days ago</Feed.Date>
-                    <Feed.Summary>
-                      <a>KittyJewel7981</a> has bid <a>$30</a>
-                    </Feed.Summary>
-                  </Feed.Content>
-                </Feed.Event>
-              </Feed>
+              <Card.Group>
+                {this.props.doc.map((listing, index) => <Listings
+                    key={index}
+                    listing={listing}
+                    bids={this.props.bids.filter(bid => (bid.contactId === listing._id))}/>)}
+              </Card.Group>
             </Grid.Column>
           </Grid.Column>
         </Grid>
@@ -85,9 +80,10 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
+  const subscription2 = Meteor.subscribe(Bids.itemPublicationName);
   return {
     doc: Listings.collection.findOne(documentId),
     bids: Bids.collection.find({}).fetch(),
-    ready: subscription.ready(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(ViewItem);
