@@ -37,11 +37,10 @@ class AddStuff extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <Grid.Row>
-                  <SelectField name='category' />
-                  <NumField name='quantity' decimal={false}/> <NumField name='price' decimal={true} />
-                  <SelectField name='condition'/>
-                </Grid.Row>
+                <SelectField name='category' />
+                <NumField name='quantity' decimal={false}/>
+                <NumField name='price' decimal={true} />
+                <SelectField name='condition'/>
                 <TextField name='brand'/>
                 <LongTextField name='description'/>
                 <TextField name='image'/>
