@@ -12,14 +12,13 @@ class ListingsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      quantity: Number,
-      price: Number,
-      image: String,
       category: {
         type: String,
         allowedValues: ['Textbooks', 'Kitchenware', 'Bedroom Items', 'School Supplies', 'Other Items'],
         defaultValue: 'Textbooks',
       },
+      quantity: Number,
+      price: Number,
       condition: {
         type: String,
         allowedValues: ['brand new', 'like new', 'lightly used', 'heavily used'],
@@ -27,6 +26,7 @@ class ListingsCollection {
       },
       brand: String,
       description: String,
+      image: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
