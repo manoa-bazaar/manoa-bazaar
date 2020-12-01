@@ -3,8 +3,8 @@ import { Button, Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class SchoolItem extends React.Component {
+/** Renders a single card in the Kitchen category page. See pages/KitchenItems.jsx. */
+class ListingItem extends React.Component {
   render() {
     return (
         <Card centered>
@@ -14,24 +14,24 @@ class SchoolItem extends React.Component {
                 // size='huge'
                 width='300px'
                 height='300px'
-                src={this.props.items.image}
+                src={this.props.item.image}
             />
-            <Card.Header>{this.props.items.name}</Card.Header>
-            <Card.Meta>Price: ${this.props.items.price}</Card.Meta>
+            <Card.Header>{this.props.item.name}</Card.Header>
+            <Card.Meta>Price: ${this.props.item.price}</Card.Meta>
             <Card.Description>
-              {this.props.items.description}
+              {this.props.item.description}
             </Card.Description>
           </Card.Content>
-          <Link to={`/viewitem/${this.props.items._id}`}><Button size='small' attached='bottom'>View item</Button></Link>
+          <Link to={`/viewitem/${this.props.item._id}`}><Button size='small' attached='bottom'>View item</Button></Link>
         </Card>
     );
   }
 }
 
 /** Require a document to be passed to this component. */
-SchoolItem.propTypes = {
-  items: PropTypes.object.isRequired,
+ListingItem.propTypes = {
+  item: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(SchoolItem);
+export default withRouter(ListingItem);

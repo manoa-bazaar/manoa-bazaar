@@ -3,24 +3,24 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-// import { Stuffs } from '../../api/stuff/Stuff';
-import Textbook from '../components/Textbook';
 import { Listings } from '../../api/listing/Listing';
+import ListingItem from '../components/ListingItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class Textbooks extends React.Component {
+class Others extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
+  /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">Textbooks</Header>
+          <Header as="h2" textAlign="center">Other items</Header>
           <Card.Group>
-            {this.props.books.map((books, index) => <Textbook key={index}
-                                                             books={books}
+            {this.props.others.map((item, index) => <ListingItem key={index}
+                                                                item={item}
             />)}
           </Card.Group>
         </Container>
@@ -29,8 +29,8 @@ class Textbooks extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-Textbooks.propTypes = {
-  books: PropTypes.array.isRequired,
+Others.propTypes = {
+  others: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -39,7 +39,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
   return {
-    books: Listings.collection.find({ category: 'Textbooks' }).fetch(),
+    others: Listings.collection.find({ category: 'Other Items' }).fetch(),
     ready: subscription.ready(),
   };
-})(Textbooks);
+})(Others);

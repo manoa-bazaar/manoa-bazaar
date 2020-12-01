@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Button } from 'semantic-ui-react';
+import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -15,6 +15,7 @@ class AddStuff extends React.Component {
   submit(data, formRef) {
     const { name, quantity, price, category, condition, brand, description, image } = data;
     const owner = Meteor.user().username;
+    console.log(owner);
     Listings.collection.insert({ name, quantity, category, condition, price, brand, description, image, owner },
         (error) => {
           if (error) {
@@ -37,12 +38,12 @@ class AddStuff extends React.Component {
               <Segment>
                 <TextField name='name'/>
                 <SelectField name='category' />
-                <NumField name='quantity' decimal={false}/> <NumField name='price' decimal={true} />
+                <NumField name='quantity' decimal={false}/>
+                <NumField name='price' decimal={true} />
                 <SelectField name='condition'/>
                 <TextField name='brand'/>
                 <LongTextField name='description'/>
-                <Button content="Upload Image" labelPosition="left" icon="camera" onClick={() => this.fileInputRef.current.click()} />
-                <input ref={this.fileInputRef} type="file" hidden onChange={this.fileChange} />
+                <TextField name='image'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>

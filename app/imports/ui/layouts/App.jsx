@@ -7,11 +7,10 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Landing from '../pages/Landing';
 import Categories from '../pages/Categories';
-import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
+import ListListingAdmin from '../pages/ListListingAdmin';
 import Textbooks from '../pages/Textbooks';
 import AddListing from '../pages/AddListing';
-import EditStuff from '../pages/EditStuff';
+import EditListing from '../pages/EditListing';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -41,11 +40,10 @@ class App extends React.Component {
               <ProtectedRoute path="/school" component={SchoolItems}/>
               <ProtectedRoute path="/other" component={Others}/>
               <ProtectedRoute path="/user-profile" component={UserProfile}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddListing}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/edit/:_id" component={EditListing}/>
               <ProtectedRoute path="/viewitem/:_id" component={ViewItem}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/admin" component={ListListingAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>

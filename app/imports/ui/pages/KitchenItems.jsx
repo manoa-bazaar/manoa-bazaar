@@ -3,11 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import ListingItem from '../components/ListingItem';
 import { Listings } from '../../api/listing/Listing';
-import SchoolItem from '../components/SchoolItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class SchoolItems extends React.Component {
+class KitchenItems extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -17,10 +17,10 @@ class SchoolItems extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">School Supplies</Header>
+          <Header as="h2" textAlign="center">Kitchen Items</Header>
           <Card.Group>
-            {this.props.items.map((items, index) => <SchoolItem key={index}
-                                                              items={items}
+            {this.props.kitchenitems.map((item, index) => <ListingItem key={index}
+                                                             item={item}
             />)}
           </Card.Group>
         </Container>
@@ -29,8 +29,8 @@ class SchoolItems extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-SchoolItems.propTypes = {
-  items: PropTypes.array.isRequired,
+KitchenItems.propTypes = {
+  kitchenitems: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -39,7 +39,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
   return {
-    items: Listings.collection.find({ category: 'School Supplies' }).fetch(),
+    kitchenitems: Listings.collection.find({ category: 'Kitchenware' }).fetch(),
     ready: subscription.ready(),
   };
-})(SchoolItems);
+})(KitchenItems);
