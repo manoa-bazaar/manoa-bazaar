@@ -1,54 +1,71 @@
 import React from 'react';
-import { Loader, Image, Header, Container, Button } from 'semantic-ui-react';
+import { Grid, Form, TextArea, Image, Divider, Button, Container, Header, Loader } from 'semantic-ui-react';
+import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
 
-/** Renders the Page for editing a single document. */
 class ViewItem extends React.Component {
-  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
+
+  /** On submit, insert the data. */
+  submit(data, formRef) {
+    const { name, quantity, condition } = data;
+    const owner = Meteor.user().username;
+    Listings.collection.insert({ name, quantity, condition, owner },
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Item added successfully', 'success');
+            formRef.reset();
+          }
+        });
+  }
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <div>
-          <Container textAlign='center'><Header as='h2'>{this.props.doc.name}</Header>
-            <Image src={this.props.doc.image} size='medium' centered></Image></Container>
-          <Container textAlign='justified'>
-            <b>Price:</b>
-            <p>
-              ${this.props.doc.price}
-            </p>
-            <b>Items available:</b>
-            <p>
-              {this.props.doc.quantity}
-            </p>
-            <b>Condition of this item:</b>
-            <p>
-              {this.props.doc.condition}
-            </p>
-            <b>Brand:</b>
-            <p>
-              {this.props.doc.brand}
-            </p>
-            <b>Description:</b>
-            <p>
-              {this.props.doc.description}
-            </p>
-            <Link to={`/makeoffer/${this.props.doc._id}`}><Button size='big' content='Make an offer' /></Link>
-          </Container>
-        </div>
+        <Grid container columns={2}>
+          <Grid.Column>
+            <Image src={this.props.doc.image} size='medium' centered></Image>
+          </Grid.Column>
+          <Grid.Column>
+            <Header as='h3'>${this.props.doc.name}</Header>
+            <Divider fitted/>
+            <Grid.Column>
+              <Grid container columns={2}>
+                <Grid.Column>
+                  <Header as='h4'>${this.props.doc.price}</Header>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button color='green'>Buy Now</Button>
+                </Grid.Column>
+              </Grid>
+              <Header as='h3'>Details</Header>
+              <Header as='h4'>Condition: {this.props.doc.condition} </Header>
+              <Container text><p>{this.props.doc.description}</p>
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                <p>Item Category > Item Subcategory</p>
+                <p>Listed 4 days ago in Kaneohe</p>
+                <Image src='images/map-placeholder.png' size='medium' rounded/>
+              </Container>
+              <Container>
+                <p>Send seller a message</p>
+                <Form>
+                  <TextArea placeholder='Is this still available?' fluid />
+                </Form>
+              </Container>
+            </Grid.Column>
+          </Grid.Column>
+        </Grid>
     );
   }
 }
 
-/** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we
- use. */
 ViewItem.propTypes = {
   doc: PropTypes.object,
   ready: PropTypes.bool.isRequired,
