@@ -3,7 +3,7 @@ import { Card, Image, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single card in the Bedroom category page. See pages/BedroomItems.jsx. */
 class BedroomItem extends React.Component {
   render() {
     return (

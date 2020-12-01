@@ -7,7 +7,6 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Landing from '../pages/Landing';
 import Categories from '../pages/Categories';
-import ListStuff from '../pages/ListStuff';
 import ListListingAdmin from '../pages/ListListingAdmin';
 import Textbooks from '../pages/Textbooks';
 import AddListing from '../pages/AddListing';
