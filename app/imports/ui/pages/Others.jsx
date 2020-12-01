@@ -16,7 +16,7 @@ class Others extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
+        <Container id="#others-page">
           <Header as="h2" textAlign="center">Other items</Header>
           <Card.Group>
             {this.props.others.map((item, index) => <ListingItem key={index}

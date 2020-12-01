@@ -5,7 +5,7 @@ import { Grid, Image, Container, Card } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <div className="landing-page">
+        <div id="landing-page">
           <Container>
             <h1>Welcome to Manoa Bazaar</h1>
             <p>Buy and sell items from other UHM students</p>

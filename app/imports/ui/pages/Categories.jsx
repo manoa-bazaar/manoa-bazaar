@@ -8,11 +8,11 @@ class Categories extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (
-        <div className="categories">
+        <div className="categories" id="categories-page">
           <Grid columns={5}>
             <Grid.Row>
               <Grid.Column>
-                <Card as={NavLink} exact to="/textbooks" key="/textbooks">
+                <Card as={NavLink} id="textbooks-link" exact to="/textbooks" key="/textbooks">
                   <Image src='https://d.newsweek.com/en/full/59117/kap2611-technology-textbooks.jpg?w=1600&h=1600&q=88&f=ff093339934fb2d9734f9cea52d446ac' wrapped
                          ui={false}/>
                   <Card.Content>
@@ -25,7 +25,7 @@ class Categories extends React.Component {
                 </Card>
               </Grid.Column>
               <Grid.Column>
-                <Card as={NavLink} exact to="/kitchenware" key="/kitchenware">
+                <Card as={NavLink} id="kitchenware-link" exact to="/kitchenware" key="/kitchenware">
                   <Image
                       src='https://pyxis.nymag.com/v1/imgs/29c/91b/fef7ee5dd274755481e580ee0933f6db19-Home-Hero-Kitchen-Utensil-Set-lede.rsquare.w700.jpg'
                       wrapped ui={false}/>
@@ -39,7 +39,7 @@ class Categories extends React.Component {
                 </Card>
               </Grid.Column>
               <Grid.Column>
-                <Card as={NavLink} exact to="/bedroom" key="/bedroom">
+                <Card as={NavLink} id="bedroom-link" exact to="/bedroom" key="/bedroom">
                   <Image
                       src='https://www.alisondeyette.com/wp-content/uploads/dorm-room-design-ideas.jpg'
                       wrapped ui={false}/>
@@ -53,7 +53,7 @@ class Categories extends React.Component {
                 </Card>
               </Grid.Column>
               <Grid.Column>
-                <Card as={NavLink} exact to="/school" key="/school">
+                <Card as={NavLink} id="school-link" exact to="/school" key="/school">
                   <Image
                       src='https://sep.yimg.com/ay/vickerey/clairefontaine-basics-large-spiral-bound-notebook-with-pockets-6-x-8-25-9.jpg'
                       wrapped ui={false}/>
@@ -67,7 +67,7 @@ class Categories extends React.Component {
                 </Card>
               </Grid.Column>
               <Grid.Column>
-                <Card as={NavLink} exact to="/other" key="/other">
+                <Card as={NavLink} id="other-link" exact to="/other" key="/other">
                   <Image
                       src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png'
                       wrapped ui={false}/>
