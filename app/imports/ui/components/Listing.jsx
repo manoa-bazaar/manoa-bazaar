@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Feed, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import EditListing from '../pages/EditListing';
+import Bids from './Bids';
 
 /** Renders a single card in the List Contacts table. See pages/ListContacts.jsx. */
 class Listing extends React.Component {
@@ -26,6 +27,11 @@ class Listing extends React.Component {
           <Card.Content extra>
             <EditListing owner={this.props.listing.owner} contactId={this.props.listing._id}/>
           </Card.Content>
+          <Card.Content extra>
+            <Feed>
+              {this.props.bids.map((bids, index) => <Bids key={index} bids={bids}/>)}
+            </Feed>
+          </Card.Content>
         </Card>
     );
   }
@@ -34,7 +40,7 @@ class Listing extends React.Component {
 /** Require a document to be passed to this component. */
 Listing.propTypes = {
   listing: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
+  bids: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
