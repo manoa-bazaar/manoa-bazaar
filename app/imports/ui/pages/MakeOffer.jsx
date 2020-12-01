@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid, Form, TextArea, Image, Divider, Button, Container, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { Grid, Form, TextArea, Image, Divider, Button, Container, Header, Loader } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { Stuffs } from '../../api/stuff/Stuff';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Listings } from '../../api/listing/Listing';
 
 class MakeOffer extends React.Component {
 
@@ -12,7 +12,7 @@ class MakeOffer extends React.Component {
   submit(data, formRef) {
     const { name, quantity, condition } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, quantity, condition, owner },
+    Listings.collection.insert({ name, quantity, condition, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -24,10 +24,14 @@ class MakeOffer extends React.Component {
   }
 
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPage() {
     return (
         <Grid container columns={2}>
           <Grid.Column>
-            <Image src='images/item2.jpg'/>
+            <Image src={this.props.doc.image} size='medium' centered></Image>
           </Grid.Column>
           <Grid.Column>
             <Header as='h3'>Columbia South Canyon Diaper Bag Backpack</Header>
@@ -35,15 +39,15 @@ class MakeOffer extends React.Component {
               <Grid.Column>
                 <Grid container columns={2}>
                   <Grid.Column>
-              <Header as='h4'>$30.00</Header>
+              <Header as='h4'>${this.props.doc.price}</Header>
                   </Grid.Column>
                   <Grid.Column>
               <Button color='green'>Buy Now</Button>
                   </Grid.Column>
                 </Grid>
                 <Header as='h3'>Details</Header>
-                <Header as='h4'>Condition:</Header>
-                <Container text><p>This is where the user description would go</p>
+                <Header as='h4'>Condition: {this.props.doc.condition} </Header>
+                <Container text><p>{this.props.doc.description}</p>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                 <p>Item Category > Item Subcategory</p>
                 <p>Listed 4 days ago in Kaneohe</p>
@@ -62,4 +66,20 @@ class MakeOffer extends React.Component {
   }
 }
 
-export default MakeOffer;
+MakeOffer.propTypes = {
+  doc: PropTypes.object,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components.
+ https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe(Listings.itemPublicationName);
+  return {
+    doc: Listings.collection.findOne(documentId),
+    ready: subscription.ready(),
+  };
+})(MakeOffer);
