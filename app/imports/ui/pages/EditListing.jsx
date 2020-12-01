@@ -16,7 +16,6 @@ class EditListing extends React.Component {
   /** On successful submit, insert the data. */
   submit(data) {
     const { name, quantity, category, condition, price, brand, description, owner, _id } = data;
-    console.log(owner);
     Listings.collection.update(_id, { $set: { name, quantity, category, condition, price, brand, description, owner } }, (error) => (error ?
         swal('Error', error.message, 'error') :
         swal('Success', 'Item updated successfully', 'success')));
