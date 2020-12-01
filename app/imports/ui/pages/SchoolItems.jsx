@@ -4,7 +4,7 @@ import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Listings } from '../../api/listing/Listing';
-import SchoolItem from '../components/SchoolItem';
+import ListingItem from '../components/ListingItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class SchoolItems extends React.Component {
@@ -19,8 +19,8 @@ class SchoolItems extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">School Supplies</Header>
           <Card.Group>
-            {this.props.items.map((items, index) => <SchoolItem key={index}
-                                                              items={items}
+            {this.props.items.map((item, index) => <ListingItem key={index}
+                                                                 item={item}
             />)}
           </Card.Group>
         </Container>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
 /** Renders a single card in the Kitchen category page. See pages/KitchenItems.jsx. */
-class KitchenItem extends React.Component {
+class ListingItem extends React.Component {
   render() {
     return (
         <Card centered>
@@ -14,24 +14,24 @@ class KitchenItem extends React.Component {
                 // size='huge'
                 width='300px'
                 height='300px'
-                src={this.props.kitchenitems.image}
+                src={this.props.item.image}
             />
-            <Card.Header>{this.props.kitchenitems.name}</Card.Header>
-            <Card.Meta>Price: ${this.props.kitchenitems.price}</Card.Meta>
+            <Card.Header>{this.props.item.name}</Card.Header>
+            <Card.Meta>Price: ${this.props.item.price}</Card.Meta>
             <Card.Description>
-              {this.props.kitchenitems.description}
+              {this.props.item.description}
             </Card.Description>
           </Card.Content>
-          <Link to={`/viewitem/${this.props.kitchenitems._id}`}><Button size='small' attached='bottom'>View item</Button></Link>
+          <Link to={`/viewitem/${this.props.item._id}`}><Button size='small' attached='bottom'>View item</Button></Link>
         </Card>
     );
   }
 }
 
 /** Require a document to be passed to this component. */
-KitchenItem.propTypes = {
-  kitchenitems: PropTypes.object.isRequired,
+ListingItem.propTypes = {
+  item: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(KitchenItem);
+export default withRouter(ListingItem);

@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import KitchenItem from '../components/KitchenItem';
+import ListingItem from '../components/ListingItem';
 import { Listings } from '../../api/listing/Listing';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -19,8 +19,8 @@ class KitchenItems extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Kitchen Items</Header>
           <Card.Group>
-            {this.props.kitchenitems.map((kitchenitems, index) => <KitchenItem key={index}
-                                                             kitchenitems={kitchenitems}
+            {this.props.kitchenitems.map((item, index) => <ListingItem key={index}
+                                                             item={item}
             />)}
           </Card.Group>
         </Container>

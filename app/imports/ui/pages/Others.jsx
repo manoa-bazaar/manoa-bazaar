@@ -4,7 +4,7 @@ import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Listings } from '../../api/listing/Listing';
-import Other from '../components/Other';
+import ListingItem from '../components/ListingItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Others extends React.Component {
@@ -14,14 +14,13 @@ class Others extends React.Component {
   }
 
   /** Render the page once subscriptions have been received. */
-  /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
         <Container>
           <Header as="h2" textAlign="center">Other items</Header>
           <Card.Group>
-            {this.props.others.map((others, index) => <Other key={index}
-                                                                others={others}
+            {this.props.others.map((item, index) => <ListingItem key={index}
+                                                                item={item}
             />)}
           </Card.Group>
         </Container>
