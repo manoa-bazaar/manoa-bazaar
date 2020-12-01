@@ -18,7 +18,7 @@ class ListingsCollection {
       category: {
         type: String,
         allowedValues: ['Textbooks', 'Kitchenware', 'Bedroom Items', 'School Supplies', 'Other Items'],
-        defaultValue: 'Textbook',
+        defaultValue: 'Textbooks',
       },
       condition: {
         type: String,
