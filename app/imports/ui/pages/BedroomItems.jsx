@@ -19,7 +19,7 @@ class BedroomItems extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Bedroom Items</Header>
           <Card.Group>
-            {this.props.bedroomitems.map((bedroomitems, index) => <ListingItem key={index}
+            {this.props.bedroomitems.map((item, index) => <ListingItem key={index}
                                                                                item={item}
             />)}
           </Card.Group>
