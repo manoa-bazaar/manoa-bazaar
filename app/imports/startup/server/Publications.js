@@ -52,7 +52,7 @@ Meteor.publish(Bids.itemPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Bids.userPublicationName, function () {
+Meteor.publish(Bids.itemPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Bids.collection.find({ owner: username });
