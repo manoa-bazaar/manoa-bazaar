@@ -121,7 +121,6 @@ test('Test the Other items page', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-/** implement this test after ViewItems page is working
 test('Test the View items page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
@@ -131,4 +130,4 @@ test('Test the View items page', async (testController) => {
   await viewItemPage.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
-});**/
+});
