@@ -31,6 +31,10 @@ class NavBar {
     await testController.click('#categories');
   }
 
+  async gotoAdminPage(testController) {
+    await testController.click('#admin');
+  }
+
   async gotoAddListingPage(testController) {
     await testController.click('#add-listing');
   }

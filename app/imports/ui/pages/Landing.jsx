@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Image, Container, Card } from 'semantic-ui-react';
+import { Listings } from '../../api/listing/Listing';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -474,4 +475,5 @@ class Landing extends React.Component {
   }
 }
 
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default Landing;

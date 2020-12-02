@@ -17,7 +17,7 @@ class ViewItem extends React.Component {
   renderPage() {
     return (
         <div>
-          <Container textAlign='center'><Header as='h2'>{this.props.doc.name}</Header>
+          <Container textAlign='center' id='view-item-page'><Header as='h2'>{this.props.doc.name}</Header>
             <Image src={this.props.doc.image} size='medium' centered></Image></Container>
           <Container textAlign='justified'>
             <b>Price:</b>

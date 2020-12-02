@@ -28,6 +28,7 @@ class EditListing extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
+    console.log(this.props.doc);
     return (
         <Grid container centered>
           <Grid.Column>
@@ -64,7 +65,7 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Listings.userPublicationName);
+  const subscription = Meteor.subscribe(Listings.itemPublicationName);
   return {
     doc: Listings.collection.findOne(documentId),
     ready: subscription.ready(),
