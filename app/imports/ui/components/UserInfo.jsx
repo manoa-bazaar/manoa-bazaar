@@ -21,7 +21,7 @@ class UserInfo extends React.Component {
               <Image id="icon-space" size='small' circular src={this.props.doc.image}/>
             </Grid.Column>
             <Grid.Column>
-              <h2>kittyjewel7981</h2>
+              <h2>${this.props.doc.username()}</h2>
               <Rating icon='star' defaultRating={4} maxRating={5} />
               <h4>80 items listed | 78 sales</h4>
                Welcome to my store!! Shipping from california :) Msg me for more info

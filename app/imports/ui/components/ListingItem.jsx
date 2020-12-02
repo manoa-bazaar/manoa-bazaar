@@ -25,7 +25,6 @@ class ListingItem extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Feed>
-              {this.props.bids.map((note, index) => <Bids key={index} note={note}/>)}
             </Feed>
           </Card.Content>
           <Link to={`/viewitem/${this.props.item._id}`}><Button size='small' attached='bottom'>View item</Button></Link>
@@ -37,7 +36,6 @@ class ListingItem extends React.Component {
 /** Require a document to be passed to this component. */
 ListingItem.propTypes = {
   item: PropTypes.object.isRequired,
-  bids: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Listings } from '../../api/listing/Listing';
+import { Users } from '../../api/users/User';
 
 /* eslint-disable no-console */
 
@@ -29,4 +30,17 @@ if ((Meteor.settings.loadAssetsFile) && (Listings.collection.find().count() === 
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
   jsonData.defaultListings.map(item => addListing(item));
+}
+
+function addUser(data) {
+  console.log(`  Adding: ${data.name} (${data.owner})`);
+  Users.collection.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (Users.collection.find().count() === 0) {
+  if (Meteor.settings.defaultUserInfo) {
+    console.log('Creating default accounts.');
+    Meteor.settings.defaultUserInfo.map(data => addUser(data));
+  }
 }

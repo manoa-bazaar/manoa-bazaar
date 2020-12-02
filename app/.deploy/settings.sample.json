@@ -1,10 +1,15 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme", "username": "kittyjewel7981",
-      "location": "Kaneohe", "description": "Welcome to my store!! Shipping from california :) Msg me for more info",
-      "picture": "images/cat-icon.jpg", "banner": "images/banner.jpg" }
+    { "email": "john@foo.com", "password": "changeme" }
 
+  ],
+
+  "defaultUserInfo": [
+    { "owner": "john@foo.com", "username": "kittyjewel7981", "location": "Kaneohe", "description": "Welcome to my store!! Shipping from california :) Msg me for more info",
+      "image": "images/cat-icon.jpg", "banner": "images/banner.jpg" },
+    { "owner": "admin@foo.com", "username": "kittyjewel7981", "location": "Kaneohe", "description": "Welcome to my store!! Shipping from california :) Msg me for more info",
+      "image": "images/cat-icon.jpg", "banner": "images/banner.jpg" }
   ],
 
   "defaultData": [

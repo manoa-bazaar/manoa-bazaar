@@ -54,12 +54,6 @@ class ViewItem extends React.Component {
                 <p>Listed 4 days ago in Kaneohe</p>
                 <Image src='images/map-placeholder.png' size='medium' rounded/>
               </Container>
-              <Card.Group>
-                {this.props.doc.map((listing, index) => <Listings
-                    key={index}
-                    listing={listing}
-                    bids={this.props.bids.filter(bid => (bid.contactId === listing._id))}/>)}
-              </Card.Group>
             </Grid.Column>
           </Grid.Column>
         </Grid>
@@ -69,7 +63,6 @@ class ViewItem extends React.Component {
 
 ViewItem.propTypes = {
   doc: PropTypes.object,
-  bids: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -80,10 +73,8 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
-  const subscription2 = Meteor.subscribe(Bids.itemPublicationName);
   return {
     doc: Listings.collection.findOne(documentId),
-    bids: Bids.collection.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready(),
+    ready: subscription.ready(),
   };
 })(ViewItem);
