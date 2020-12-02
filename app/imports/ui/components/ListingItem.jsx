@@ -1,15 +1,14 @@
 import React from 'react';
-import { Button, Card, Image, Feed } from 'semantic-ui-react';
+import { Button, Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import Bids from './Bids';
 
 /** Renders a single card in the Kitchen category page. See pages/KitchenItems.jsx. */
 class ListingItem extends React.Component {
   render() {
     return (
         <Card centered>
-          <Link to={`/viewitem/${this.props.item._id}`}>
+          <Link to={`/viewitem/${this.props.item._id}`} className='black-card-text'>
             <Card.Content>
               <Image
                   // floated='right'

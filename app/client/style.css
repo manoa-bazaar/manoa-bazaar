@@ -15,3 +15,11 @@
 #icon-space {
     margin-right: -100px;
 }
+
+.black-card-text {
+  color: black;
+}
+
+.black-card-text:hover {
+  color: black;
+}
