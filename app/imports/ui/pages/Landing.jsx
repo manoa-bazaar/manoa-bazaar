@@ -15,8 +15,8 @@ class Landing extends React.Component {
 
   renderPage() {
     return (
-        <div className="manoa-bazaar-landing-background" id="landing-page">
-          <Container>
+        <div className="manoa-bazaar-landing-background">
+          <Container id="landing-page">
             <Grid verticalAlign='top' textAlign='left' container>
               <Grid.Column width={8}>
                 <Header as='h1'>Welcome to Manoa Bazaar</Header>
