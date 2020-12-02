@@ -1,14 +1,24 @@
 import React from 'react';
-import { Grid, Rating, Image, Divider } from 'semantic-ui-react';
+import {Grid, Rating, Image, Divider, Loader} from 'semantic-ui-react';
+import { Meteor } from 'meteor/meteor';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
+// eslint-disable-next-line import/named
+import { Users } from '../../api/users/User';
 
 /** A simple static component to render some text for the landing page. */
 class UserInfo extends React.Component {
+
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPage() {
     return (
         <Grid verticalAlign='middle' container>
           <Grid.Row columns={2}>
             <Grid.Column floated='left'>
-              <Image id="icon-space" size='small' circular src='images/cat-icon.jpg'/>
+              <Image id="icon-space" size='small' circular src={this.props.doc.image}/>
             </Grid.Column>
             <Grid.Column>
               <h2>kittyjewel7981</h2>
@@ -57,4 +67,19 @@ class UserInfo extends React.Component {
   }
 }
 
-export default UserInfo;
+UserInfo.propTypes = {
+  doc: PropTypes.object,
+  bids: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe(Users.itemPublicationName);
+  return {
+    doc: Users.collection.findOne(documentId),
+    ready: subscription.ready(),
+  };
+})(UserInfo);
