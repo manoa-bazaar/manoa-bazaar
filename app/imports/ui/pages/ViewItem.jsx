@@ -66,6 +66,7 @@ class ViewItem extends React.Component {
     );
   }
 }
+
 ViewItem.propTypes = {
   doc: PropTypes.object,
   bids: PropTypes.array.isRequired,
