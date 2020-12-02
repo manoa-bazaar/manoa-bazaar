@@ -29,14 +29,10 @@ class Landing extends React.Component {
             </Grid>
           </Container>
           <Container>
-            <Grid columns={4}>
-              <Grid.Row>
-                <Card.Group>
-                  {this.props.landing.map((item, index) => <ListingItem key={index}
-                                                                        item={item}/>)}
-                </Card.Group>
-              </Grid.Row>
-            </Grid>
+              <Card.Group itemsPerRow={4}>
+                {this.props.landing.map((item, index) => <ListingItem key={index}
+                                                                      item={item}/>)}
+              </Card.Group>
           </Container>
         </div>
     );
