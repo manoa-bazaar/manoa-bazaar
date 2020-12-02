@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Rating, Image, Divider, Loader, Card } from 'semantic-ui-react';
+import { Grid, Rating, Image, Divider, Loader, Card } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';

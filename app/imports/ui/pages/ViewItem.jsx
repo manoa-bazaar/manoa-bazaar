@@ -5,7 +5,6 @@ import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
-import { Bids } from '../../api/bids/Bids';
 
 class ViewItem extends React.Component {
 
