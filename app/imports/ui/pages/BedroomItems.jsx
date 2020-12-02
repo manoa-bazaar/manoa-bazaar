@@ -16,7 +16,7 @@ class BedroomItems extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
+        <Container id="bedroomitems-page">
           <Header as="h2" textAlign="center">Bedroom Items</Header>
           <Card.Group>
             {this.props.bedroomitems.map((item, index) => <ListingItem key={index}

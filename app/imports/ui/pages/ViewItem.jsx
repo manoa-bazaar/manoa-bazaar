@@ -30,7 +30,7 @@ class ViewItem extends React.Component {
 
   renderPage() {
     return (
-        <Grid container columns={2}>
+        <Grid container columns={2} id='view-item-page'>
           <Grid.Column>
             <Image src={this.props.doc.image} size='medium' centered></Image>
           </Grid.Column>
@@ -65,7 +65,6 @@ ViewItem.propTypes = {
   doc: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
-
 /** withTracker connects Meteor data to React components.
  https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(({ match }) => {

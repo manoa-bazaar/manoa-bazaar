@@ -23,6 +23,22 @@ class NavBar {
     await testController.expect(loggedInUser).eql(username);
   }
 
+  async gotoUserProfilePage(testController) {
+    await testController.click('#user-profile');
+  }
+
+  async gotoCategoriesPage(testController) {
+    await testController.click('#categories');
+  }
+
+  async gotoAdminPage(testController) {
+    await testController.click('#admin');
+  }
+
+  async gotoAddListingPage(testController) {
+    await testController.click('#add-listing');
+  }
+
   /** Check that someone is logged in, then click items to logout. */
   async logout(testController) {
     await testController.expect(Selector('#navbar-current-user').exists).ok();

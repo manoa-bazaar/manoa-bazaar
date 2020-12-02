@@ -15,7 +15,6 @@ class AddStuff extends React.Component {
   submit(data, formRef) {
     const { name, quantity, price, category, condition, brand, description, image } = data;
     const owner = Meteor.user().username;
-    console.log(owner);
     Listings.collection.insert({ name, quantity, category, condition, price, brand, description, image, owner },
         (error) => {
           if (error) {
@@ -31,21 +30,21 @@ class AddStuff extends React.Component {
   render() {
     let fRef = null;
     return (
-        <Grid container centered>
+        <Grid container centered id="add-listing-page">
           <Grid.Column>
             <Header as="h2" textAlign="center">List Item for Sale</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
-                <TextField name='name'/>
-                <SelectField name='category' />
-                <NumField name='quantity' decimal={false}/>
-                <NumField name='price' decimal={true} />
-                <SelectField name='condition'/>
-                <TextField name='brand'/>
-                <LongTextField name='description'/>
-                <TextField name='image'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
+                <TextField name='name' id='name'/>
+                <SelectField name='category' id='category' />
+                <NumField name='quantity' id='quantity' decimal={false}/>
+                <NumField name='price' id='price' decimal={true} />
+                <SelectField name='condition' id='condition'/>
+                <TextField name='brand' id='brand'/>
+                <LongTextField name='description' id='description'/>
+                <TextField name='image' id='image'/>
+                <SubmitField value='Submit' id='add-listing-submit'/>
+                <ErrorsField id='errors' />
               </Segment>
             </AutoForm>
           </Grid.Column>
