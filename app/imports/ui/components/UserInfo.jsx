@@ -25,8 +25,8 @@ class UserInfo extends React.Component {
             <Grid.Column>
               <h2>{this.props.users.screenname}</h2>
               <Rating icon='star' defaultRating={4} maxRating={5} />
-              <h4>Located in: {this.props.users.location}</h4>
-              <h>80 items listed | 78 sales</h>
+              <p>Located in: {this.props.users.location}</p>
+              <h4>80 items listed | 78 sales</h4>
               {this.props.users.description}
           </Grid.Column>
           </Grid.Row>
