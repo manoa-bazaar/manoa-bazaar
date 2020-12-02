@@ -1,11 +1,12 @@
 import React from 'react';
-import { Grid, Image, Divider, Button, Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Container, Header, Loader, Form } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
 import { Bids } from '../../api/bids/Bids';
+import Input from "semantic-ui-react/dist/commonjs/elements/Input";
 
 class ViewItem extends React.Component {
 
@@ -50,10 +51,17 @@ class ViewItem extends React.Component {
               <Header as='h4'>Condition: {this.props.doc.condition} </Header>
               <Container text><p>{this.props.doc.description}</p>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                <p>Item Category > Item Subcategory</p>
+                <p>Category > {this.props.doc.category}</p>
                 <p>Listed 4 days ago in Kaneohe</p>
                 <Image src='images/map-placeholder.png' size='medium' rounded/>
               </Container>
+              <Form>
+                <Form.Field>
+                  <label>Got your own offer?</label>
+                  <Input/>
+                </Form.Field>
+                <Button type='submit'>Bid</Button>
+              </Form>
             </Grid.Column>
           </Grid.Column>
         </Grid>
