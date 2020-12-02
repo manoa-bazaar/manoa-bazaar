@@ -16,7 +16,7 @@ class SchoolItems extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
+        <Container id="schoolitems-page">
           <Header as="h2" textAlign="center">School Supplies</Header>
           <Card.Group>
             {this.props.items.map((item, index) => <ListingItem key={index}
