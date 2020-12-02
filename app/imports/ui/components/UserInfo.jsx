@@ -57,7 +57,8 @@ export default withTracker(() => {
   const subscription2 = Meteor.subscribe(Listings.itemPublicationName);
   return {
     users: Users.collection.findOne(),
-    list: Listings.collection.find({ category: 'Textbooks' }).fetch(),
+    // eslint-disable-next-line no-undef
+    list: _.sample(Listings.collection.find({}).fetch(), 5),
     ready: subscription.ready() && subscription2.ready(),
   };
 })(UserInfo);
