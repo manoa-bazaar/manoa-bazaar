@@ -1,9 +1,8 @@
 import React from 'react';
-import {Grid, Rating, Image, Divider, Loader} from 'semantic-ui-react';
+import { Grid, Rating, Image, Divider, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-// eslint-disable-next-line import/named
 import { Users } from '../../api/users/User';
 
 /** A simple static component to render some text for the landing page. */
@@ -16,15 +15,19 @@ class UserInfo extends React.Component {
   renderPage() {
     return (
         <Grid verticalAlign='middle' container>
+          <Grid.Row>
+            <Image src={this.props.users.banner}/>
+          </Grid.Row>
           <Grid.Row columns={2}>
             <Grid.Column floated='left'>
-              <Image id="icon-space" size='small' circular src={this.props.doc.image}/>
+              <Image id="icon-space" size='small' circular src={this.props.users.image}/>
             </Grid.Column>
             <Grid.Column>
-              <h2>${this.props.doc.username()}</h2>
+              <h2>{this.props.users.screenname}</h2>
               <Rating icon='star' defaultRating={4} maxRating={5} />
-              <h4>80 items listed | 78 sales</h4>
-               Welcome to my store!! Shipping from california :) Msg me for more info
+              <h4>Located in: {this.props.users.location}</h4>
+              <h>80 items listed | 78 sales</h>
+              {this.props.users.description}
           </Grid.Column>
           </Grid.Row>
           <Divider fitted/>
@@ -68,18 +71,15 @@ class UserInfo extends React.Component {
 }
 
 UserInfo.propTypes = {
-  doc: PropTypes.object,
-  bids: PropTypes.array.isRequired,
+  users: PropTypes.array,
   ready: PropTypes.bool.isRequired,
 };
 
-export default withTracker(({ match }) => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const documentId = match.params._id;
-  // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Users.itemPublicationName);
+export default withTracker(() => {
+  // Get access to Users documents.
+  const subscription = Meteor.subscribe(Users.userPublicationName);
   return {
-    doc: Users.collection.findOne(documentId),
+    users: Users.collection.findOne(),
     ready: subscription.ready(),
   };
 })(UserInfo);

@@ -12,7 +12,7 @@ class UsersCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       owner: String,
-      username: String,
+      screenname: String,
       location: String,
       description: String,
       image: String,

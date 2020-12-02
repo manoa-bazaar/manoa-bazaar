@@ -33,14 +33,14 @@ if ((Meteor.settings.loadAssetsFile) && (Listings.collection.find().count() === 
 }
 
 function addUser(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.screenname} (${data.owner})`);
   Users.collection.insert(data);
 }
 
 /** Initialize the collection if empty. */
 if (Users.collection.find().count() === 0) {
   if (Meteor.settings.defaultUserInfo) {
-    console.log('Creating default accounts.');
+    console.log('Creating default userInfo.');
     Meteor.settings.defaultUserInfo.map(data => addUser(data));
   }
 }
