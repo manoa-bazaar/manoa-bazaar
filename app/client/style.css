@@ -16,6 +16,11 @@
     margin-right: -100px;
 }
 
+.manoa-bazaar-landing-background {
+  background: url('https://outdoorhawaii.com/wp-content/uploads/2017/10/Manoa-Valley.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
 .black-card-text {
   color: black;
 }
