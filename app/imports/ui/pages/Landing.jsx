@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Grid, Image } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Grid } from 'semantic-ui-react';
 import _ from 'underscore';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -20,7 +20,6 @@ class Landing extends React.Component {
             <Grid verticalAlign='top' textAlign='left' container>
               <Grid.Column width={8}>
                 <Header as='h1'>Welcome to Manoa Bazaar</Header>
-                {/*<Image size='small' circular src="https://static.thenounproject.com/png/686718-200.png"/>*/}
               </Grid.Column>
             </Grid>
             <Grid verticalAlign='bottom' textAlign='centered' container>
@@ -32,12 +31,10 @@ class Landing extends React.Component {
           <Container>
             <Grid columns={4}>
               <Grid.Row>
-                {/*<Grid.Column>*/}
                 <Card.Group>
                   {this.props.landing.map((item, index) => <ListingItem key={index}
                                                                         item={item}/>)}
                 </Card.Group>
-                {/*</Grid.Column>*/}
               </Grid.Row>
             </Grid>
           </Container>
