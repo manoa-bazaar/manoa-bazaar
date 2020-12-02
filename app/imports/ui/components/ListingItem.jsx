@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Card, Image } from 'semantic-ui-react';
+import { Button, Card, Image, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+import Bids from './Bids';
 
 /** Renders a single card in the Kitchen category page. See pages/KitchenItems.jsx. */
 class ListingItem extends React.Component {
@@ -25,6 +26,11 @@ class ListingItem extends React.Component {
             </Card.Content>
             <Button id='view-item-card' size='small' attached='bottom'>View item</Button>
           </Link>
+          <Card.Content extra>
+            <Feed>
+              {this.props.bids.map((note, index) => <Bids key={index} note={note}/>)}
+            </Feed>
+          </Card.Content>
         </Card>
     );
   }
@@ -33,6 +39,7 @@ class ListingItem extends React.Component {
 /** Require a document to be passed to this component. */
 ListingItem.propTypes = {
   item: PropTypes.object.isRequired,
+  bids: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

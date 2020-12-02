@@ -1,12 +1,12 @@
 import React from 'react';
-import { Grid, Image, Divider, Button, Container, Header, Loader, Form } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Container, Header, Loader, Form, Input, Card, Feed } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
 import { Bids } from '../../api/bids/Bids';
-import Input from "semantic-ui-react/dist/commonjs/elements/Input";
+import ListingItem from '../components/ListingItem';
 
 class ViewItem extends React.Component {
 
@@ -60,8 +60,15 @@ class ViewItem extends React.Component {
                   <label>Got your own offer?</label>
                   <Input/>
                 </Form.Field>
-                <Button type='submit'>Bid</Button>
+                <Button type='submit'>Offer</Button>
               </Form>
+              <Card.Content extra>
+                <Feed>
+                  {this.props.bids.map((listingItem, index) => <ListingItem key={index}
+                                                                 listingItem={listingItem}
+                                                                 bids={this.props.bids.filter(bids => (bids.contactId === listingItem._id))}/>)}
+                </Feed>
+              </Card.Content>
             </Grid.Column>
           </Grid.Column>
         </Grid>
@@ -71,6 +78,7 @@ class ViewItem extends React.Component {
 
 ViewItem.propTypes = {
   doc: PropTypes.object,
+  bids: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 /** withTracker connects Meteor data to React components.
@@ -80,8 +88,10 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
+  const subscription2 = Meteor.subscribe(Bids.itemPublicationName);
   return {
     doc: Listings.collection.findOne(documentId),
-    ready: subscription.ready(),
+    bids: Bids.collection.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(ViewItem);

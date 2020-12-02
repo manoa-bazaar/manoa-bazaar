@@ -45,6 +45,21 @@ Meteor.publish(Users.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Bids.itemPublicationName, function () {
+  if (this.userId) {
+    return Bids.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Bids.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Bids.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
@@ -77,14 +92,6 @@ Meteor.publish(Users.adminPublicationName, function () {
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Bids.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Bids.collection.find({ owner: username });
   }
   return this.ready();
 });
