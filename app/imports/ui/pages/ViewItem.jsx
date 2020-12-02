@@ -30,7 +30,7 @@ class ViewItem extends React.Component {
 
   renderPage() {
     return (
-        <Grid container columns={2}>
+        <Grid container columns={2} id='view-item-page'>
           <Grid.Column>
             <Image src={this.props.doc.image} size='medium' centered></Image>
           </Grid.Column>

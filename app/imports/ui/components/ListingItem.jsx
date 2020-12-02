@@ -7,8 +7,8 @@ import { Link, withRouter } from 'react-router-dom';
 class ListingItem extends React.Component {
   render() {
     return (
-        <Link to={`/viewitem/${this.props.item._id}`}>
-          <Card centered>
+        <Card centered>
+          <Link to={`/viewitem/${this.props.item._id}`}>
             <Card.Content>
               <Image
                   // floated='right'
@@ -24,8 +24,8 @@ class ListingItem extends React.Component {
               </Card.Description>
             </Card.Content>
             <Button id='view-item-card' size='small' attached='bottom'>View item</Button>
-          </Card>
-        </Link>
+          </Link>
+        </Card>
     );
   }
 }
