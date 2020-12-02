@@ -16,14 +16,14 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Manoa Bazaar</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Listing</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/categories" key='categories'>Categories</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/user-profile" key='user-profile'>User Profile</Menu.Item>,
+            [<Menu.Item as={NavLink} id="add-listing" activeClassName="active" exact to="/add" key='add'>Add Listing</Menu.Item>,
+              <Menu.Item as={NavLink} id="categories" activeClassName="active" exact to="/categories" key='categories'>Categories</Menu.Item>,
+              <Menu.Item as={NavLink} id="user-profile" activeClassName="active" exact to="/user-profile" key='user-profile'>User Profile</Menu.Item>,
             ]
 
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+            <Menu.Item as={NavLink} id="admin" activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
         ) : ''}
         <Menu.Item><Input action='Search' placeholder='Search Listings...' /></Menu.Item>
         <Menu.Item position="right">

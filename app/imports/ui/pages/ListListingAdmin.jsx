@@ -17,7 +17,7 @@ class ListListingAdmin extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
+        <Container id="admin-page">
           <Header as="h2" textAlign="center">List Stuff (Admin)</Header>
           <Table celled>
             <Table.Header>

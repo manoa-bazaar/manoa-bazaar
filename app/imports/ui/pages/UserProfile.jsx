@@ -6,7 +6,7 @@ import UserInfo from '../components/UserInfo';
 class UserProfile extends React.Component {
   render() {
     return (
-        <div>
+        <div id="userprofile-page">
           <UserBanner/>
           <UserInfo/>
         </div>

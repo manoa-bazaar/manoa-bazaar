@@ -22,7 +22,7 @@ class ListingItemAdmin extends React.Component {
           <Table.Cell>{this.props.listing.brand}</Table.Cell>
           <Table.Cell>{this.props.listing.description}</Table.Cell>
           <Table.Cell>{this.props.listing.owner}</Table.Cell>
-          <Table.Cell><Link to={`/edit/${this.props.listing._id}`}>Edit</Link></Table.Cell>
+          <Table.Cell><Link to={`/edit/${this.props.listing._id}`}><Button>Edit</Button></Link></Table.Cell>
           <Table.Cell><Button onClick={() => this.removeItem(this.props.listing._id)}>
                               Delete</Button></Table.Cell>
         </Table.Row>

@@ -16,7 +16,7 @@ class KitchenItems extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
+        <Container id="kitchenitems-page">
           <Header as="h2" textAlign="center">Kitchen Items</Header>
           <Card.Group>
             {this.props.kitchenitems.map((item, index) => <ListingItem key={index}
