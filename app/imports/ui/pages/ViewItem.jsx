@@ -34,7 +34,7 @@ class ViewItem extends React.Component {
             <Image src={this.props.doc.image} size='medium' centered></Image>
           </Grid.Column>
           <Grid.Column>
-            <Header as='h3'>${this.props.doc.name}</Header>
+            <Header as='h3'>{this.props.doc.name}</Header>
             <Divider fitted/>
             <Grid.Column>
               <Grid container columns={2}>

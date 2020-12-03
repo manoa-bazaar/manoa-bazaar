@@ -19,6 +19,7 @@ class ListingsCollection {
       },
       quantity: Number,
       price: Number,
+      owner: String,
       condition: {
         type: String,
         allowedValues: ['brand new', 'like new', 'lightly used', 'heavily used'],

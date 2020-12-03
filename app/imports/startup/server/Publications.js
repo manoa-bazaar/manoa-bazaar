@@ -54,7 +54,7 @@ Meteor.publish(Users.adminPublicationName, function () {
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.
-Meteor.publish(Users.userPublicationName, function () {
+Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
   }
