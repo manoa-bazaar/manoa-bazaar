@@ -87,7 +87,4 @@ class Categories extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props.
- /** withTracker connects Meteor data to React components.
- https://guide.meteor.com/react.html#using-withTracker */
 export default (Categories);
