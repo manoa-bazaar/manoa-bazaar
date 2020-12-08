@@ -21,6 +21,7 @@ import BedroomItems from '../pages/BedroomItems';
 import SchoolItems from '../pages/SchoolItems';
 import UserProfile from '../pages/UserProfile';
 import Others from '../pages/Others';
+import Footer from '../components/Footer';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -47,6 +48,7 @@ class App extends React.Component {
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
+            <Footer/>
           </div>
         </Router>
     );
