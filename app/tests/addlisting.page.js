@@ -9,7 +9,7 @@ class AddListingPage {
 
   /** Asserts that this page is currently displayed. */
   async isDisplayed(testController) {
-    await testController.expect(this.pageSelector.exists).ok();
+    await testController.wait(30000).expect(this.pageSelector.exists).ok();
   }
 
   /** Fills out the Add Listing form, then checks to see that login was successful. */
