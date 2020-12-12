@@ -35,9 +35,10 @@ class UserInfo extends React.Component {
           <Divider fitted/>
           <Grid.Row columns={4}>
             <Card.Group>
-              {this.props.list.map((item, index) => <ListingItem key={index}
-                                                                 item={item}
-              />)}
+              {this.props.list.map((item, index) => <ListingItem
+                  key={index}
+                  item={item}
+                  listing={this.props.list.filter(listing => (listing.contactId === item._id))}/>)}
             </Card.Group>
           </Grid.Row>
         </Grid>
@@ -58,7 +59,7 @@ export default withTracker(() => {
   return {
     users: Users.collection.findOne(),
     // eslint-disable-next-line no-undef
-    list: _.sample(Listings.collection.find({}).fetch(), 5),
+    list: Listings.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
 })(UserInfo);
