@@ -35,16 +35,13 @@ class UserInfo extends React.Component {
           <Divider fitted/>
           <Grid.Row columns={4}>
             <Card.Group>
-<<<<<<< Updated upstream
               {this.props.list.map((item, index) => <ListingItem key={index}
                                                                  item={item}
               />)}
-=======
               {this.props.list.map((item, index) => <ListingItemUser
                   key={index}
                   item={item}
                   listing={this.props.list.filter(listing => (listing.contactId === item._id))}/>)}
->>>>>>> Stashed changes
             </Card.Group>
           </Grid.Row>
         </Grid>
