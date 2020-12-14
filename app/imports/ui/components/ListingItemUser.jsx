@@ -25,6 +25,9 @@ class ListingItem extends React.Component {
             </Card.Content>
             <Button id='view-item-card' size='small' attached='bottom'>View item</Button>
           </Link>
+          <Card.Content extra>
+            <Link to={`/edit/${this.props.item._id}`}>Edit</Link>
+          </Card.Content>
         </Card>
     );
   }

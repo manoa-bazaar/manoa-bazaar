@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Users } from '../../api/users/User';
 import { Listings } from '../../api/listing/Listing';
-import ListingItem from '../components/ListingItem';
+import ListingItemUser from './ListingItemUser';
 
 /** A simple static component to render some text for the landing page. */
 class UserInfo extends React.Component {
@@ -35,7 +35,7 @@ class UserInfo extends React.Component {
           <Divider fitted/>
           <Grid.Row columns={4}>
             <Card.Group>
-              {this.props.list.map((item, index) => <ListingItem
+              {this.props.list.map((item, index) => <ListingItemUser
                   key={index}
                   item={item}
                   listing={this.props.list.filter(listing => (listing.contactId === item._id))}/>)}
