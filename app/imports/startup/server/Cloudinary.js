@@ -2,9 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { Cloudinary } from 'meteor/socialize:cloudinary';
 
 Cloudinary.config({
-  cloud_name: 'cloud_name',
-  api_key: '1237419',
-  api_secret: 'asdf24adsfjk',
+  cloud_name: 'manoa-bazaar',
+  api_key: '838583519727789',
+  api_secret: 'MlqQ8EKeuTwtWK1L-Ka8_6gFIcs',
 });
 
 // Rules are bound to the connection from which they are are executed.
