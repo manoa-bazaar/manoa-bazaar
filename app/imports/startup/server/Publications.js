@@ -20,10 +20,7 @@ Meteor.publish(Listings.userPublicationName, function () {
 });
 
 Meteor.publish(Users.itemPublicationName, function () {
-  if (this.userId) {
-    return Users.collection.find();
-  }
-  return this.ready();
+  return Users.collection.find();
 });
 
 Meteor.publish(Users.userPublicationName, function () {
