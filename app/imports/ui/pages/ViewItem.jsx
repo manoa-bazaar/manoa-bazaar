@@ -1,10 +1,11 @@
 import React from 'react';
-import { Grid, Image, Divider, Button, Container, Header, Loader, Feed, Form } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Container, Header, Loader, Feed, Form, Card } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
+import { Bids } from '../../api/bids/Bids';
 
 class ViewItem extends React.Component {
 
@@ -60,17 +61,14 @@ class ViewItem extends React.Component {
                 </Form.Field>
                 <Button type='submit'>Bid</Button>
               </Form>
-              <Feed>
-                <Feed.Event>
-                  <Image src='images/cat-icon.jpg' avatar/>
-                  <Feed.Content>
-                    <Feed.Date>3 days ago</Feed.Date>
-                    <Feed.Summary>
-                      <a>KittyJewel7981</a> has bid <a>$30</a>
-                    </Feed.Summary>
-                  </Feed.Content>
-                </Feed.Event>
-              </Feed>
+              <Card.Content extra>
+                <Feed>
+                  {this.props.bids.map((bid, index) => <Bids key={index} bid={bid}/>)}
+                </Feed>
+              </Card.Content>
+              <Card.Content extra>
+                {/* <AddBid owner={this.props.contact.owner} contactId={this.props.contact._id}/> */}
+              </Card.Content>
             </Grid.Column>
           </Grid.Column>
         </Grid>
@@ -80,6 +78,7 @@ class ViewItem extends React.Component {
 
 ViewItem.propTypes = {
   doc: PropTypes.object,
+  bids: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 /** withTracker connects Meteor data to React components.
@@ -92,5 +91,6 @@ export default withTracker(({ match }) => {
   return {
     doc: Listings.collection.findOne(documentId),
     ready: subscription.ready(),
+    bids: Bids.collection.find({}).fetch(),
   };
 })(ViewItem);
