@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Divider, Button, Container, Header, Loader, Feed, Form, Card } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Container, Header, Loader, Form, Card } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
@@ -61,11 +61,12 @@ class ViewItem extends React.Component {
                 </Form.Field>
                 <Button type='submit'>Bid</Button>
               </Form>
-              <Card.Content extra>
-                <Feed>
-                  {this.props.bids.map((bid, index) => <Bids key={index} bid={bid}/>)}
-                </Feed>
-              </Card.Content>
+              <Card.Group>
+                {this.props.doc.map((listing, index) => <Listings
+                    key={index}
+                    listing={listing}
+                    notes={this.props.bids.filter(bids => (bids.contactId === listing._id))}/>)}
+              </Card.Group>
               <Card.Content extra>
                 {/* <AddBid owner={this.props.contact.owner} contactId={this.props.contact._id}/> */}
               </Card.Content>
@@ -79,6 +80,7 @@ class ViewItem extends React.Component {
 ViewItem.propTypes = {
   doc: PropTypes.object,
   bids: PropTypes.array.isRequired,
+  listing: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 /** withTracker connects Meteor data to React components.
@@ -90,6 +92,7 @@ export default withTracker(({ match }) => {
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
   return {
     doc: Listings.collection.findOne(documentId),
+    listing: Listings.collection.find({}).fetch(),
     ready: subscription.ready(),
     bids: Bids.collection.find({}).fetch(),
   };

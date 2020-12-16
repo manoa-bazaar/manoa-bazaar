@@ -9,9 +9,9 @@ class Bids extends React.Component {
     return (
         <Feed.Event >
           <Feed.Content>
-            <Feed.Date content={this.props.bid.createdAt.toLocaleDateString('en-US')} />
+            <Feed.Date content={this.props.bids.createdAt.toLocaleDateString('en-US')} />
             <Feed.Summary>
-              {this.props.bid.bid}
+              {this.props.bids.bids}
             </Feed.Summary>
           </Feed.Content>
         </Feed.Event>
@@ -21,7 +21,7 @@ class Bids extends React.Component {
 
 /** Require a document to be passed to this component. */
 Bids.propTypes = {
-  bid: PropTypes.object.isRequired,
+  bids: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

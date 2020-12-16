@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Encapsulates state and variable values for this collection. */
-class NotesCollection {
+class BidsCollection {
   constructor() {
     // The name of this collection.
     this.name = 'Bids';
@@ -11,7 +11,7 @@ class NotesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      note: String,
+      bids: String,
       contactId: String,
       owner: String,
       createdAt: Date,
@@ -24,4 +24,4 @@ class NotesCollection {
   }
 }
 
-export const Bids = new NotesCollection();
+export const Bids = new BidsCollection();
