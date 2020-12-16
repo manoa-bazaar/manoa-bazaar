@@ -1,7 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
-import ImageField from '../../ui/components/ImageField';
 
 /** Encapsulates state and variable values for this collection. */
 class ListingsCollection {
@@ -27,7 +26,7 @@ class ListingsCollection {
       },
       brand: String,
       description: String,
-      image: String,
+      image: URL,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

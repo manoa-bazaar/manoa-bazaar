@@ -63,8 +63,8 @@ const ImageField = ({ onChange, value, ...props }) => {
 };
 
 ImageField.propTypes = {
-  onChange: PropTypes.object.isRequired,
-  value: PropTypes.object.isRequired,
+  onChange: PropTypes.function,
+  value: PropTypes.object,
   name: PropTypes.string.isRequired,
 };
 
