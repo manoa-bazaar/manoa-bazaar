@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Listings } from '../../api/listing/Listing';
+import ImageField from '../components/ImageField';
 
 const bridge = new SimpleSchema2Bridge(Listings.schema);
 
@@ -42,7 +43,7 @@ class AddStuff extends React.Component {
                 <SelectField name='condition' id='condition'/>
                 <TextField name='brand' id='brand'/>
                 <LongTextField name='description' id='description'/>
-                <TextField name='image' id='image'/>
+                <ImageField name='image' id='image'/>
                 <SubmitField value='Submit' id='add-listing-submit'/>
                 <ErrorsField id='errors' />
               </Segment>

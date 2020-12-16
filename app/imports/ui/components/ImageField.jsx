@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connectField } from 'uniforms';
 import { useDropzone } from 'react-dropzone';
-import { Cloudinary } from 'meteor/socialize:cloudinary';
+import { Cloudinary, FileReader } from 'meteor/socialize:cloudinary';
+import PropTypes from 'prop-types';
 
 const ImageField = ({ onChange, value, ...props }) => {
   const [files, setFiles] = useState([]);
@@ -54,11 +55,17 @@ const ImageField = ({ onChange, value, ...props }) => {
         <label className="control-label">{capitalizeFirstLetter(props.name)}</label>
         <div {...getRootProps({ className: 'dropzone' })}>
           <input {...getInputProps()} />
-          <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
+          <p>Drag and drop some files here, or click to select files</p>
         </div>
         <aside>{thumbs}</aside>
       </div>
   );
+};
+
+ImageField.propTypes = {
+  onChange: PropTypes.object.isRequired,
+  value: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default connectField(ImageField);

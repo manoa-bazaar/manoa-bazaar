@@ -27,12 +27,7 @@ class ListingsCollection {
       },
       brand: String,
       description: String,
-      image: {
-        type: Object,
-        uniforms: ImageField,
-      },
-      'image.url': String,
-      'image.public_id': String,
+      image: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
