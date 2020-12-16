@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
 import { Bids } from '../../api/bids/Bids';
+import ListingItem from '../components/ListingItem';
+import AddBid from '../components/AddBid';
 
 class ViewItem extends React.Component {
 
@@ -54,23 +56,10 @@ class ViewItem extends React.Component {
                 <p>Listed 4 days ago in Kaneohe</p>
                 <Image src='images/map-placeholder.png' size='medium' rounded/>
               </Container>
-              <Form>
-                <Form.Field>
-                  <label>Have your own Bid?</label>
-                  <input placeholder='Type your bid here' />
-                </Form.Field>
-                <Button type='submit'>Bid</Button>
-              </Form>
-              <Card.Group>
-                {this.props.doc.map((listing, index) => <Listings
-                    key={index}
-                    listing={listing}
-                    notes={this.props.bids.filter(bids => (bids.contactId === listing._id))}/>)}
-              </Card.Group>
-              <Card.Content extra>
-                {/* <AddBid owner={this.props.contact.owner} contactId={this.props.contact._id}/> */}
-              </Card.Content>
-            </Grid.Column>
+              <Container>
+                <AddBid owner={this.props.doc.owner} contactId={this.props.doc._id}/>
+              </Container>
+              </Grid.Column>
           </Grid.Column>
         </Grid>
     );
@@ -80,7 +69,7 @@ class ViewItem extends React.Component {
 ViewItem.propTypes = {
   doc: PropTypes.object,
   bids: PropTypes.array.isRequired,
-  listing: PropTypes.array.isRequired,
+  listings: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 /** withTracker connects Meteor data to React components.
@@ -92,7 +81,7 @@ export default withTracker(({ match }) => {
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
   return {
     doc: Listings.collection.findOne(documentId),
-    listing: Listings.collection.find({}).fetch(),
+    listings: Listings.collection.find({}).fetch(),
     ready: subscription.ready(),
     bids: Bids.collection.find({}).fetch(),
   };

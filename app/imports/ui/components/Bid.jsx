@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Bids extends React.Component {
+class Bid extends React.Component {
   render() {
     return (
         <Feed.Event >
           <Feed.Content>
-            <Feed.Date content={this.props.bids.createdAt.toLocaleDateString('en-US')} />
+            <Feed.Date content={this.props.bid.createdAt.toLocaleDateString('en-US')} />
             <Feed.Summary>
-              {this.props.bids.bids}
+              {this.props.bid.bid}
             </Feed.Summary>
           </Feed.Content>
         </Feed.Event>
@@ -20,9 +20,9 @@ class Bids extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-Bids.propTypes = {
-  bids: PropTypes.object.isRequired,
+Bid.propTypes = {
+  bid: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Bids);
+export default withRouter(Bid);

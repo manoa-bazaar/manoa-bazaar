@@ -2,7 +2,8 @@ import React from 'react';
 import { Button, Card, Image, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import Bids from './Bids';
+import Bid from './Bid';
+import AddBid from './AddBid';
 
 /** Renders a single card in the Kitchen category page. See pages/KitchenItems.jsx. */
 class ListingItem extends React.Component {
@@ -27,7 +28,7 @@ class ListingItem extends React.Component {
             <Button id='view-item-card' size='small' attached='bottom'>View item</Button>
             <Card.Content extra>
               <Feed>
-                {this.props.bids.map((bids, index) => <Bids key={index} bids={bids}/>)}
+                {/* {this.props.bids.map((bid, index) => <Bid key={index} bid={bid}/>)} */}
               </Feed>
             </Card.Content>
           </Link>
