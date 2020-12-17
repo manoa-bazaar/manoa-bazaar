@@ -30,6 +30,7 @@ class EditListing extends React.Component {
   renderPage() {
     console.log(this.props.doc);
     return (
+        <div className="manoa-bazaar-landing-background">
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Edit Listing</Header>
@@ -49,6 +50,7 @@ class EditListing extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
     );
   }
 }
