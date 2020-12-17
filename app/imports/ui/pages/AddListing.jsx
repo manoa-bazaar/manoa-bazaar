@@ -3,11 +3,31 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
+import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Listings } from '../../api/listing/Listing';
 import ImageField from '../components/ImageField';
 
-const bridge = new SimpleSchema2Bridge(Listings.schema);
+const formSchema = new SimpleSchema({
+  name: String,
+  quantity: Number,
+  price: Number,
+  category: {
+    type: String,
+    allowedValues: ['Textbooks', 'Kitchenware', 'Bedroom Items', 'School Supplies', 'Other Items'],
+    defaultValue: 'Textbooks',
+  },
+  condition: {
+    type: String,
+    allowedValues: ['brand new', 'like new', 'lightly used', 'heavily used'],
+    defaultValue: 'brand new',
+  },
+  description: String,
+  brand: String,
+  image: String,
+});
+
+const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
@@ -16,7 +36,7 @@ class AddStuff extends React.Component {
   submit(data, formRef) {
     const { name, quantity, price, category, condition, brand, description, image } = data;
     const owner = Meteor.user().username;
-    Listings.collection.insert({ name, quantity, category, condition, price, brand, description, image, owner },
+    Listings.collection.insert({ name, category, quantity, price, condition, brand, description, image, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
