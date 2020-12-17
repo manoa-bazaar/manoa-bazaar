@@ -22,7 +22,7 @@ class Landing extends React.Component {
                 <Header as='h1'>Welcome to Manoa Bazaar</Header>
               </Grid.Column>
             </Grid>
-            <Grid verticalAlign='bottom' textAlign='centered' container>
+            <Grid verticalAlign='bottom' textAlign='center' container>
               <Grid.Column width={16}>
                 <Header as='h2'>Buy and sell items from other UHM students</Header>
               </Grid.Column>

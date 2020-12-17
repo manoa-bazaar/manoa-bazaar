@@ -1,10 +1,13 @@
 import React from 'react';
-import { Grid, Image, Divider, Button, Container, Header, Loader, Feed, Form } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Container, Header, Loader, Form, Card } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
+import { Bids } from '../../api/bids/Bids';
+import ListingItem from '../components/ListingItem';
+import AddBid from '../components/AddBid';
 
 class ViewItem extends React.Component {
 
@@ -53,25 +56,10 @@ class ViewItem extends React.Component {
                 <p>Listed 4 days ago in Kaneohe</p>
                 <Image src='images/map-placeholder.png' size='medium' rounded/>
               </Container>
-              <Form>
-                <Form.Field>
-                  <label>Have your own Bid?</label>
-                  <input placeholder='Type your bid here' />
-                </Form.Field>
-                <Button type='submit'>Bid</Button>
-              </Form>
-              <Feed>
-                <Feed.Event>
-                  <Image src='images/cat-icon.jpg' avatar/>
-                  <Feed.Content>
-                    <Feed.Date>3 days ago</Feed.Date>
-                    <Feed.Summary>
-                      <a>KittyJewel7981</a> has bid <a>$30</a>
-                    </Feed.Summary>
-                  </Feed.Content>
-                </Feed.Event>
-              </Feed>
-            </Grid.Column>
+              <Container>
+                <AddBid owner={this.props.doc.owner} contactId={this.props.doc._id}/>
+              </Container>
+              </Grid.Column>
           </Grid.Column>
         </Grid>
     );
@@ -80,6 +68,8 @@ class ViewItem extends React.Component {
 
 ViewItem.propTypes = {
   doc: PropTypes.object,
+  bids: PropTypes.array.isRequired,
+  listings: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 /** withTracker connects Meteor data to React components.
@@ -91,6 +81,8 @@ export default withTracker(({ match }) => {
   const subscription = Meteor.subscribe(Listings.itemPublicationName);
   return {
     doc: Listings.collection.findOne(documentId),
+    listings: Listings.collection.find({}).fetch(),
     ready: subscription.ready(),
+    bids: Bids.collection.find({}).fetch(),
   };
 })(ViewItem);
