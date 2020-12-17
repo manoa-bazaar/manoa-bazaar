@@ -1,12 +1,11 @@
 import React from 'react';
-import { Grid, Image, Divider, Button, Container, Header, Loader, Form, Card } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Container, Header, Loader } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Listings } from '../../api/listing/Listing';
 import { Bids } from '../../api/bids/Bids';
-import ListingItem from '../components/ListingItem';
 import AddBid from '../components/AddBid';
 
 class ViewItem extends React.Component {
