@@ -4,15 +4,15 @@ import { Divider, List, Container } from 'semantic-ui-react';
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
-    const divStyle = { paddingTop: '15px' };
+    const divStyle = { paddingTop: '15px', paddingBottom: '15px' };
     return (
         <footer>
-          <div style={divStyle} className="ui left aligned container">
+          <div style={divStyle} className="ui left aligned container" >
             <Container>
             <Divider />
               <List>
                 <List.Item>
-                  <List.Icon name='users' />
+                  <List.Icon name='users'/>
                   <List.Content>Manoa Bazaar</List.Content>
                 </List.Item>
                 <List.Item>

@@ -50,6 +50,7 @@ class AddStuff extends React.Component {
   render() {
     let fRef = null;
     return (
+        <div className="manoa-bazaar-landing-background">
         <Grid container centered id="add-listing-page">
           <Grid.Column>
             <Header as="h2" textAlign="center">List Item for Sale</Header>
@@ -69,6 +70,7 @@ class AddStuff extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
     );
   }
 }

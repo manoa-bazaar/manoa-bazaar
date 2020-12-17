@@ -8,6 +8,7 @@ class Categories extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (
+        <div className="manoa-bazaar-landing-background">
         <div className="categories" id="categories-page">
           <Grid columns={5}>
             <Grid.Row>
@@ -82,6 +83,7 @@ class Categories extends React.Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
+        </div>
         </div>
     );
   }

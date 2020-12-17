@@ -16,6 +16,7 @@ class Others extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className="manoa-bazaar-landing-background">
         <Container id="others-page">
           <Header as="h2" textAlign="center">Other items</Header>
           <Card.Group>
@@ -24,6 +25,7 @@ class Others extends React.Component {
             />)}
           </Card.Group>
         </Container>
+        </div>
     );
   }
 }

@@ -16,6 +16,7 @@ class SchoolItems extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className="manoa-bazaar-landing-background">
         <Container id="schoolitems-page">
           <Header as="h2" textAlign="center">School Supplies</Header>
           <Card.Group>
@@ -24,6 +25,7 @@ class SchoolItems extends React.Component {
             />)}
           </Card.Group>
         </Container>
+        </div>
     );
   }
 }
