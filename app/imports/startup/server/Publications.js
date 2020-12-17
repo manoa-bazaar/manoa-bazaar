@@ -5,10 +5,7 @@ import { Bids } from '../../api/bids/Bids';
 import { Users } from '../../api/users/User';
 
 Meteor.publish(Listings.itemPublicationName, function () {
-  if (this.userId) {
     return Listings.collection.find();
-  }
-  return this.ready();
 });
 
 Meteor.publish(Listings.userPublicationName, function () {

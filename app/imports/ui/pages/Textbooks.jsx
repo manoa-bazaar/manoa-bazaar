@@ -15,6 +15,7 @@ class Textbooks extends React.Component {
 
   renderPage() {
     return (
+        <div className="manoa-bazaar-landing-background">
         <Container id="textbooks-page">
           <Header as="h2" textAlign="center">Textbooks</Header>
           <Card.Group>
@@ -23,6 +24,7 @@ class Textbooks extends React.Component {
             />)}
           </Card.Group>
         </Container>
+        </div>
     );
   }
 }
