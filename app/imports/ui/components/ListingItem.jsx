@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+import { Cloudinary } from 'meteor/socialize:cloudinary';
 
 /** Renders a single card in the Kitchen category page. See pages/KitchenItems.jsx. */
 class ListingItem extends React.Component {

@@ -24,7 +24,10 @@ const formSchema = new SimpleSchema({
   },
   description: String,
   brand: String,
-  image: String,
+  image: {
+    type: 'string',
+    uniforms: { component: ImageField },
+  },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -36,6 +39,7 @@ class AddStuff extends React.Component {
   submit(data, formRef) {
     const { name, quantity, price, category, condition, brand, description, image } = data;
     const owner = Meteor.user().username;
+    const imageurl = image.url;
     Listings.collection.insert({ name, category, quantity, price, condition, brand, description, image, owner },
         (error) => {
           if (error) {

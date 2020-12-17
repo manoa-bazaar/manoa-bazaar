@@ -4,12 +4,12 @@ import 'uniforms-bridge-simple-schema-2';
 import ImageField from '../../ui/components/ImageField';
 
 const ImageSchema = new SimpleSchema({
-  logo: {
+  image: {
     type: Object,
     uniforms: ImageField,
   },
-  'logo.url': String,
-  'logo.public_id': String,
+  'image.url': String,
+  'image.public_id': String,
 });
 
 export default ImageSchema;

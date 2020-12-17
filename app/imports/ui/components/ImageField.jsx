@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { connectField } from 'uniforms';
 import { useDropzone } from 'react-dropzone';
 import { Cloudinary, FileReader } from 'meteor/socialize:cloudinary';
@@ -23,11 +23,10 @@ const ImageField = ({ onChange, value, ...props }) => {
         if (reader.result) {
           const logo = Cloudinary.uploadFile(reader.result);
           logo.then((val) => {
-            const { url, public_id } = val;
-            this.props.value = url;
+            const { url } = val;
+            this.value = url;
             onChange({
               url,
-              public_id,
             });
           });
         }
@@ -44,21 +43,15 @@ const ImageField = ({ onChange, value, ...props }) => {
       </div>
   ));
 
-  useEffect(
-      () => () => {
-        files.forEach(file => URL.revokeObjectURL(file.preview));
-      },
-      [files],
-  );
+  const getURL = this.value;
 
   const capitalizeFirstLetter = str => str.charAt(0).toUpperCase() + str.slice(1);
-
   return (
       <div className="field form-group">
         <label className="control-label">{capitalizeFirstLetter(props.name)}</label>
         <div {...getRootProps({ className: 'dropzone' })}>
-          <input {...getInputProps()} />
-          <Container>Drag and drop some files here, or click to <Button>select files</Button></Container>
+          <input {...getInputProps()} value={this.value}/>
+          <Container>Click to <Button>select files</Button></Container>
         </div>
         <aside>{thumbs}</aside>
       </div>
@@ -67,7 +60,7 @@ const ImageField = ({ onChange, value, ...props }) => {
 
 ImageField.propTypes = {
   onChange: PropTypes.function,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   name: PropTypes.string.isRequired,
 };
 
