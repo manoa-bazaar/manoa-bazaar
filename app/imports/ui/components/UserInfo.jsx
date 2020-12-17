@@ -7,12 +7,7 @@ import { Users } from '../../api/users/User';
 
 /** A simple static component to render some text for the landing page. */
 class UserInfo extends React.Component {
-
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  }
-
-  renderPage() {
     return (
         <Grid verticalAlign='middle' container>
           <Grid.Row>
