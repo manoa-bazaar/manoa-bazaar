@@ -24,8 +24,8 @@ function addUser(data) {
 
 /** Initialize the collection if empty. */
 if (Users.collection.find().count() === 0) {
-  if (Meteor.settings.defaultUserInfo) {
+  if (Meteor.settings.defaultAccounts) {
     console.log('Creating default userInfo.');
-    Meteor.settings.defaultUserInfo.map(data => addUser(data));
+    Meteor.settings.defaultAccounts.map(data => addUser(data));
   }
 }

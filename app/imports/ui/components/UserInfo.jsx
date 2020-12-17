@@ -1,11 +1,9 @@
 import React from 'react';
-import { Grid, Rating, Image, Divider, Loader, Card } from 'semantic-ui-react';
+import { Grid, Rating, Image, Divider, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Users } from '../../api/users/User';
-import { Listings } from '../../api/listing/Listing';
-import ListingItemUser from './ListingItemUser';
 
 /** A simple static component to render some text for the landing page. */
 class UserInfo extends React.Component {
@@ -34,12 +32,6 @@ class UserInfo extends React.Component {
           </Grid.Row>
           <Divider fitted/>
           <Grid.Row columns={4}>
-            <Card.Group>
-              {this.props.list.map((item, index) => <ListingItemUser
-                  key={index}
-                  item={item}
-                  listing={this.props.list.filter(listing => (listing.contactId === item._id))}/>)}
-            </Card.Group>
           </Grid.Row>
         </Grid>
     );
@@ -47,19 +39,14 @@ class UserInfo extends React.Component {
 }
 
 UserInfo.propTypes = {
-  list: PropTypes.array.isRequired,
-  users: PropTypes.object,
+  users: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 export default withTracker(() => {
   // Get access to Users documents.
   const subscription = Meteor.subscribe(Users.userPublicationName);
-  const subscription2 = Meteor.subscribe(Listings.itemPublicationName);
   return {
-    users: Users.collection.findOne(),
-    // eslint-disable-next-line no-undef
-    list: Listings.collection.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready(),
+    ready: subscription.ready(),
   };
 })(UserInfo);

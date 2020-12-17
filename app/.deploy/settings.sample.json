@@ -1,14 +1,8 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
-
-  ],
-
-  "defaultUserInfo": [
-    { "owner": "john@foo.com", "screenname": "kittyjewel7981", "location": "Kaneohe", "description": "Welcome to my store!! Shipping from california :) Msg me for more info",
+    { "email": "john@foo.com", "password": "changeme", "owner": "john@foo.com", "screenname": "kittyjewel7981", "location": "Kaneohe", "description": "Welcome to my store!! Shipping from california :) Msg me for more info",
       "image": "images/cat-icon.jpg", "banner": "images/banner.jpg" },
-    { "owner": "admin@foo.com", "screenname": "kittyjewel7981", "location": "Kaneohe", "description": "Welcome to my store!! Shipping from california :) Msg me for more info",
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin","owner": "admin@foo.com", "screenname": "kittyadmin7981", "location": "Admin", "description": "Admin account for testing and moderating.",
       "image": "images/cat-icon.jpg", "banner": "images/banner.jpg" }
   ],
 
@@ -24,3 +18,4 @@
     "appSecret": "changeme"
   }
 }
+
